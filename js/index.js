@@ -103,92 +103,126 @@ stockVariedades.push(
 
 // VARIABLES
 
-let descuento = 0.1;
-let costo_envio = 500;
-let suma_total = 0;
-let cant_productos = 0;
-let confirmacionEnvio;
+// let descuento = 0.1;
+// let costo_envio = 500;
+// let suma_total = 0;
+// let cant_productos = 0;
+// let confirmacionEnvio;
 
-let variedad_elegida;
+// let variedad_elegida;
 
-let subtotal_indu_kush;
-let subtotal_citrus_skunk;
-let subtotal_jack_herer;
-let subtotal_moby_dick;
-let subtotal_girl_scout_cookies;
-let subtotal_gorila_glue;
-let subtotal_skunk_1;
-let subtotal_purple_kush;
-let subtotal_red_poison;
-let subtotal_gelato;
+// let subtotal_indu_kush;
+// let subtotal_citrus_skunk;
+// let subtotal_jack_herer;
+// let subtotal_moby_dick;
+// let subtotal_girl_scout_cookies;
+// let subtotal_gorila_glue;
+// let subtotal_skunk_1;
+// let subtotal_purple_kush;
+// let subtotal_red_poison;
+// let subtotal_gelato;
 
-function procesoVenta() {
-  variedad_elegida = prompt("Qué variedad elegiste?").toLowerCase();
-  console.log("Variedad Elegida: " + variedad_elegida);
-  cant_productos = parseInt(prompt("Cuantas semillas vas a llevar?"));
-  console.log("Cantidad de semillas: " + cant_productos);
+// function procesoVenta() {
+//   variedad_elegida = prompt("Qué variedad elegiste?").toLowerCase();
+//   console.log("Variedad Elegida: " + variedad_elegida);
+//   cant_productos = parseInt(prompt("Cuantas semillas vas a llevar?"));
+//   console.log("Cantidad de semillas: " + cant_productos);
 
-  switch (variedad_elegida) {
-    case "indu kush":
-      subtotal_indu_kush = indu_kush.precio * cant_productos;
-      console.log("El Subtotal es: " + subtotal_indu_kush);
-      alert("El subtototal de tu compra es: " + subtotal_indu_kush);
-      confirmacionEnvio = prompt(
-        "deseas el envío a tu casa? Si/No"
-      ).toLowerCase();
-      console.log(confirmacionEnvio);
-      if (confirmacionEnvio == "si") {
-        alert("El Costo De Envío es: " + costo_envio);
-        suma_total = subtotal_indu_kush + costo_envio;
-        alert("El costo de tus semillas + envío es de: " + suma_total);
-        console.log(" Costo total + envío es de $ " + suma_total);
-      } else {
-        console.log("No desea el envío");
-        alert(
-          `El total de tu compra es ${subtotal_indu_kush}. Esperamos tu retiro en la tienda`
-        );
-      }
-      break;
-    case "citrus skunk":
-      subtotal_citrus_skunk = citrus_skunk.precio * cant_productos;
-      confirmacionEnvio = prompt(
-        "deseas el envío a tu casa? Si/No"
-      ).toLowerCase();
-      if (confirmacionEnvio == "si") {
-        alert("El Costo De Envío es: " + costo_envio);
-        suma_total = subtotal_citrus_skunk + costo_envio;
-        alert("El costo total + envío es de: " + suma_total);
-        console.log(" Costo total + envío es de $" + suma_total);
-      } else {
-        console.log("No desea el envío");
-        alert(
-          `El total de tu compra es ${subtotal_citrus_skunk}. Esperamos tu retiro en la tienda`
-        );
-      }
-      break;
-    case "jack herer":
-      subtotal_jack_herer = jack_herer.precio * cant_productos;
-      console.log("El Subtotal es: " + subtotal_jack_herer);
-      alert("El subtototal de tu compra es: " + subtotal_jack_herer);
-      confirmacionEnvio = prompt(
-        "deseas el envío a tu casa? Si/No"
-      ).toLowerCase();
-      console.log(confirmacionEnvio);
-      if (confirmacionEnvio == "si") {
-        alert("El Costo De Envío es: " + costo_envio);
-        suma_total = subtotal_jack_herer + costo_envio;
-        alert("El costo de tus semillas + envío es de: " + suma_total);
-        console.log(" Costo total + envío es de $ " + suma_total);
-      } else {
-        console.log("No desea el envío");
-        alert(
-          `El total de tu compra es ${subtotal_jack_herer}. Esperamos tu retiro en la tienda`
-        );
-      }
-      break;
-    default:
-      console.log("No eligió ninguna variedad");
-      break;
+//   switch (variedad_elegida) {
+//     case "indu kush":
+//       subtotal_indu_kush = indu_kush.precio * cant_productos;
+//       console.log("El Subtotal es: " + subtotal_indu_kush);
+//       alert("El subtototal de tu compra es: " + subtotal_indu_kush);
+//       confirmacionEnvio = prompt(
+//         "deseas el envío a tu casa? Si/No"
+//       ).toLowerCase();
+//       console.log(confirmacionEnvio);
+//       if (confirmacionEnvio == "si") {
+//         alert("El Costo De Envío es: " + costo_envio);
+//         suma_total = subtotal_indu_kush + costo_envio;
+//         alert("El costo de tus semillas + envío es de: " + suma_total);
+//         console.log(" Costo total + envío es de $ " + suma_total);
+//       } else {
+//         console.log("No desea el envío");
+//         alert(
+//           `El total de tu compra es ${subtotal_indu_kush}. Esperamos tu retiro en la tienda`
+//         );
+//       }
+//       break;
+//     case "citrus skunk":
+//       subtotal_citrus_skunk = citrus_skunk.precio * cant_productos;
+//       confirmacionEnvio = prompt(
+//         "deseas el envío a tu casa? Si/No"
+//       ).toLowerCase();
+//       if (confirmacionEnvio == "si") {
+//         alert("El Costo De Envío es: " + costo_envio);
+//         suma_total = subtotal_citrus_skunk + costo_envio;
+//         alert("El costo total + envío es de: " + suma_total);
+//         console.log(" Costo total + envío es de $" + suma_total);
+//       } else {
+//         console.log("No desea el envío");
+//         alert(
+//           `El total de tu compra es ${subtotal_citrus_skunk}. Esperamos tu retiro en la tienda`
+//         );
+//       }
+//       break;
+//     case "jack herer":
+//       subtotal_jack_herer = jack_herer.precio * cant_productos;
+//       console.log("El Subtotal es: " + subtotal_jack_herer);
+//       alert("El subtototal de tu compra es: " + subtotal_jack_herer);
+//       confirmacionEnvio = prompt(
+//         "deseas el envío a tu casa? Si/No"
+//       ).toLowerCase();
+//       console.log(confirmacionEnvio);
+//       if (confirmacionEnvio == "si") {
+//         alert("El Costo De Envío es: " + costo_envio);
+//         suma_total = subtotal_jack_herer + costo_envio;
+//         alert("El costo de tus semillas + envío es de: " + suma_total);
+//         console.log(" Costo total + envío es de $ " + suma_total);
+//       } else {
+//         console.log("No desea el envío");
+//         alert(
+//           `El total de tu compra es ${subtotal_jack_herer}. Esperamos tu retiro en la tienda`
+//         );
+//       }
+//       break;
+//     default:
+//       console.log("No eligió ninguna variedad");
+//       break;
+//   }
+// }
+// procesoVenta();
+
+// Formulario de Registro
+
+let email = document.getElementById("email");
+let nombreApellido = document.getElementById("nombreApellido");
+
+let suscripcion = document.getElementById("mensajeJS");
+let notificacionSuscrito;
+
+let formulario = document.getElementById("Formulario");
+formulario.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (
+    nombreApellido.value == null ||
+    nombreApellido.value == "" ||
+    email.value == null ||
+    email.value == ""
+  ) {
+    console.log("Faltan Datos");
+    alert("Completa todos los campos para recibir nuestras novedades");
+  } else {
+    notificacionSuscrito = document.createElement("div");
+    notificacionSuscrito.innerHTML =
+      "<p>Bienvenido/a nuestro newsletter " +
+      nombreApellido +
+      ", Gracias por tu suscripción.";
+
+    suscripcion.appendChild(notificacionSuscrito);
+
+    alert(
+      "Ahora vas a recibir nuestras novedades pero no te preocupes que no nos volveremos spam"
+    );
   }
-}
-procesoVenta();
+});

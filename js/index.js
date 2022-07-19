@@ -201,6 +201,9 @@ let nombreApellido = document.getElementById("nombreApellido");
 let suscripcion = document.getElementById("mensajeJS");
 let notificacionSuscrito;
 
+let user;
+let userStorage = sessionStorage.getItem("nombreApellido");
+
 let formulario = document.getElementById("Formulario");
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -216,13 +219,14 @@ formulario.addEventListener("submit", function (e) {
     notificacionSuscrito = document.createElement("div");
     notificacionSuscrito.innerHTML =
       "<p>Bienvenido/a nuestro newsletter " +
-      nombreApellido +
-      ", Gracias por tu suscripción.";
+      nombreApellido.value +
+      ", Gracias por tu suscripción.</p>";
 
     suscripcion.appendChild(notificacionSuscrito);
-
+    user = userStorage;
     alert(
       "Ahora vas a recibir nuestras novedades pero no te preocupes que no nos volveremos spam"
     );
+    sessionStorage.setItem("nombreApellido", nombreApellido);
   }
 });

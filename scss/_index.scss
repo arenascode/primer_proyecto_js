@@ -21,6 +21,7 @@ background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgb(237, 228, 228);
 }
 .fastMenu {
   background-color:#212529;
@@ -83,8 +84,32 @@ justify-content: center;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  width: auto;
+}
 } 
+#mensajeJS {
+ width: auto;
 }
 .piePagina {
-  background-color: black;
+  height: 100px;
+  background-image: linear-gradient(to right, black,#42893c );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(237, 228, 228);
+  .piePagina_msj {
+  font-size: 0.7rem;
+  padding: 3px;
+  text-align:center;
+  }
+  .piePagina_logo {
+    padding: 3px;
+  }
+  .piePagina_contacto {
+    img {
+      padding-bottom: 3px;
+    }
+    font-size: 0.7rem;
+    padding: 3px;
+  }
 }

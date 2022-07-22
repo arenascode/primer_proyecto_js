@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <title>Carrito</title>
+</head>
+<body>
+    <header class="barraNav">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <div class="container-fluid navBar_logo">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../images/SeedSemas.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            SeedSemas
+          </a>
+        </div>
+        <div class="container-fluid navBar_links">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Catálogo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Indica</li>
+                  <li><a class="dropdown-item" href="#">Sativa</a></li>
+                  <li><a class="dropdown-item" href="#">Autoflorecientes</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Cómo Germinar tus Semillas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Login</a>
+              </li>
+            </ul>
+          </div>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+    </header>
+    <div class="carritoPrincipal">
+      <div class="tituloCarrito">
+        <h3>Carrito De Compra</h3>
+        <button class="continuaComprando">Continua Comprando</button>
+      </div> 
+      <div class="detalleCarrito">
+      <div class="listaCarrito">
+        <form action="" id="formularioCompra">
+        <label for="ingresaVariedad">Ingresa la Variedad</label>
+        <select name="ingresaVariedad" id="ingresaVariedad">
+          <option value="Purple Kush">Purple Kush</option>
+          <option value="Gelato">Gelato</option>
+          <option value="Jack Herer">Jack Herer</option>
+          <option value="Indu Kush">Indu Kush</option>
+          <option value="Red Poison">Red Poison</option>
+        </select>
+        <label for="cantidad">Selecciona la cantidad</label> <br>
+<input type="number" name="cantidad" id="cantidadSemas"> <br>
+<input type="submit" value="Confirmar Compra" id="confirmarCompra">
+        </form>
+      </div>
+      <div id="detalleCompra"class="detalleCompra">
+<h3>Detalle de tu Compra:</h3>
+      </div>
+      <div class="puedeGustarte"></div>
+      </div>
+    <footer class="piePagina">
+        <div class="piePagina_msj">
+          Esta pagina web es solo de caracter educativo. No tiene fines comerciales y los derechos del material digital estan reservados a sus autores. prueba pruebita
+        </div>
+        <div class="piePagina_logo">
+          <img src="../images/SeedSemas.png" alt="" width="32" height="28" class="d-inline-block align-text-top">
+        </div>
+        <div class="piePagina_contacto">
+          <img src="../images/iconoMail.png" width="22" height="20">
+          cannaseeds@gmail.com
+        </div>
+    </footer>
+    <script src="../js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+</body>
+</html>

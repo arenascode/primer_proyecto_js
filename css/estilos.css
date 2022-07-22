@@ -1,3 +1,10 @@
+.navbar {
+  flex-direction: row;
+  flex-wrap: inherit;
+  column-gap: 10px; }
+  .navbar .carrito {
+    width: auto; }
+
 body {
   background-color: #212529;
   text-align: center;
@@ -91,3 +98,36 @@ body {
     padding: 3px; }
     .piePagina .piePagina_contacto img {
       padding-bottom: 3px; }
+
+.tituloCarrito {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
+  align-items: initial; }
+  .tituloCarrito h3 {
+    text-align: left;
+    justify-self: end;
+    margin: 10px;
+    font-size: 1.2rem; }
+  .tituloCarrito button {
+    width: max-content;
+    align-self: flex-end;
+    margin: 10px; }
+
+.detalleCarrito {
+  display: flex;
+  flex-direction: row; }
+
+.listaCarrito {
+  background-image: linear-gradient(to right, black, #42893c);
+  padding: 10px; }
+  .listaCarrito form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 5px; }
+
+.detalleCompra {
+  background-image: linear-gradient(to left, black, #602185);
+  color: aliceblue;
+  width: -webkit-fill-available; }

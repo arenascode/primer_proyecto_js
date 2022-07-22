@@ -1,3 +1,11 @@
+.navbar {
+    flex-direction: row;
+    flex-wrap: inherit;
+    column-gap: 10px;
+    .carrito {
+      width: auto;
+    }
+}
 @mixin tamanioBanner ($alto, $ancho){ 
     height: $alto;
     width: $ancho;

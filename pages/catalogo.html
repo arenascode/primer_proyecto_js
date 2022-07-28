@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <title>Catalogo</title>
+</head>
+
+<body>
+  <header class="barraNav">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+      <div class="container-fluid navBar_logo">
+        <a class="navbar-brand" href="index.html">
+          <img src="../images/SeedSemas.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          SeedSemas
+        </a>
+      </div>
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" href="./pages/catalogo.html" id="navbarDropdownMenuLink"
+                role="link" data-bs-toggle="dropdown" aria-expanded="false">
+                Catálogo
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="./catalogo.html">Indica</a></li>
+                <li><a class="dropdown-item" href="./catalogo.html">Sativa</a></li>
+                <li><a class="dropdown-item" href="./catalogo.html">CBD</a></li>
+                <li><a class="dropdown-item" href="./catalogo.html">Autoflorecientes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Cómo Germinar tus Semillas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="container carrito">
+        <a href="./carrito.html"><img src="../images/carritoIcono.png" alt="carrito" width="24px" height="auto"></a>
+      </div>
+    </nav>
+  </header>
+  <div class="bannerCatalogo">
+  </div>
+  <section class="catalogoPrincipal">
+    <div class="container-fluid containerCatalogo">
+      <div class="catalogoFiltro">
+        <h4>Selecciona tu preferencia</h4>
+        <div class="form-check filtroIndica">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Indica
+          </label>
+        </div>
+        <div class="form-check filtroSativa">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Sativa
+          </label>
+        </div>
+        <div class="form-check filtroAutoflorecientes">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Autoflorecientes
+          </label>
+        </div>
+        <div class="form-check filtroCBD">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            CBD
+          </label>
+        </div>
+      </div>
+      <div id="variedadCatalogo" class="row catalogoVariedadFiltrada">
+      </div>
+    </div>
+    <div class="productoSugerido">
+      Sugerencia de Productos
+    </div>
+  </section>
+  <footer class="piePagina">
+    <div class="piePagina_msj">
+      Esta pagina web es solo de caracter educativo. No tiene fines comerciales y los derechos del material digital
+      estan reservados a sus autores.
+    </div>
+    <div class="piePagina_logo">
+      <img src="../images/SeedSemas.png" alt="" width="32" height="28" class="d-inline-block align-text-top">
+    </div>
+    <div class="piePagina_contacto">
+      <img src="../images/iconoMail.png" width="22" height="20">
+      cannaseeds@gmail.com
+    </div>
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="../js/catalogo.js"></script>
+</body>
+</html>

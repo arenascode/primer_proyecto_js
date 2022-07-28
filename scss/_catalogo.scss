@@ -1,0 +1,28 @@
+.containerCatalogo { 
+  // background-color: rgb(151, 70, 12);
+  display: inline-flex;
+  row-gap:16px ;
+  align-items: start;
+  .catalogoFiltro {
+    border-radius: 5%;
+    border: 2px grey solid;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+  }
+  .catalogoVariedadFiltrada {
+margin: 10px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    flex-wrap: wrap;
+  }
+}
+.cardVariedad {
+  margin: 10px;
+  width: auto;
+  font-size: 0.9rem;
+  p {
+    text-align: justify;
+  }
+}

@@ -131,3 +131,27 @@ body {
   background-image: linear-gradient(to left, black, #602185);
   color: aliceblue;
   width: -webkit-fill-available; }
+
+.containerCatalogo {
+  display: inline-flex;
+  row-gap: 16px;
+  align-items: start; }
+  .containerCatalogo .catalogoFiltro {
+    border-radius: 5%;
+    border: 2px grey solid;
+    margin: 10px;
+    padding: 10px;
+    position: relative; }
+  .containerCatalogo .catalogoVariedadFiltrada {
+    margin: 10px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    flex-wrap: wrap; }
+
+.cardVariedad {
+  margin: 10px;
+  width: auto;
+  font-size: 0.9rem; }
+  .cardVariedad p {
+    text-align: justify; }

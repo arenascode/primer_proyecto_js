@@ -57,12 +57,10 @@ stockVariedades.push(new Producto(
   4700,
   "../images/catalogo/indica/og-kush.jpeg",
   "Es una de las variedades de cannabis más demandadas de California y, por ende, del mundo, y fue elegida como la mejor variedad de cannabis de todos los tiempos por la biblia cannábica, High Times. Una de las razones por las que todo el mundo habla de OG Kush es por su increíble sabor. Podríamos resumirlo como una explosiva mezcla de intenso olor a diesel, frutas del bosque y cítricos."
-  )
-);
+));
 
 stockVariedades.push(
-  new Producto(7, "Green Posion", "Sweet Seeds", "Indica", 4000, "../images/catalogo/indica/green-poison.jpeg", "Green Poison desarrolla un espectacular planta de marihuana de crecimiento rápido y vigoroso, con ramas largas y flexibles sobre las que predomina un gran cogollo central.El aroma y sabor de esta variedad es exquisito, muy intenso, dulce y afrutado."
-  )
+  new Producto(7, "Green Posion", "Sweet Seeds", "Indica", 4000, "../images/catalogo/indica/green-poison.jpeg", "Green Poison desarrolla un espectacular planta de marihuana de crecimiento rápido y vigoroso, con ramas largas y flexibles sobre las que predomina un gran cogollo central.El aroma y sabor de esta variedad es exquisito, muy intenso, dulce y afrutado.")
 );
 stockVariedades.push(
   new Producto(
@@ -82,7 +80,7 @@ stockVariedades.push(
     "Dinafem",
     "Autofloreciente",
     4600,
-    "../images/catalogo/autoflorecientes/cookies-auto.jpeg", 
+    "../images/catalogo/autoflorecientes/cookies-auto.jpeg",
     "En el caso de esta versión autofloreciente se repite el patrón de esa famosa Cookies: tradicional Kush de sello californiano, que parece recién salida del horno, fruto de nuevos aromas reposteros. Con esta innovación en el aroma cannábico más clásico se ha conseguido que el sabor de Cookies Autoflowering sea algo excepcional."
   )
 );
@@ -93,7 +91,7 @@ stockVariedades.push(
     "Sweet Seeds",
     "Autofloreciente",
     4700,
-    "../images/catalogo/autoflorecientes/gorillaGirl-auto.jpeg", 
+    "../images/catalogo/autoflorecientes/gorillaGirl-auto.jpeg",
     "Es una semilla de cannabis autofloreciente que responde a las exigencias de quienes cultivan en climas fríos, de veranos cortos. La versión automática de la potente Gorilla inyecta fuerza y robustez a su predecesora feminizada, fruto de su herencia Ruderalis, y es también más rápida, dada la velocidad de floración de las autos."
   )
 );
@@ -165,23 +163,144 @@ stockVariedades.push(
 );
 
 
-// Mostrar el Carrito
+// Mostrar todos los productos
+let catalogoVariedadFiltrada;
+let cardVariedad;
 
-stockVariedades.forEach( mostrarCarrito => {
-  let catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
-  let cardVariedad = document.createElement("div");
-  cardVariedad.setAttribute("class", "card cardVariedad col-2", )
-  cardVariedad.innerHTML = `<div  style="width: 13rem;">
-  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+// stockVariedades.forEach( mostrarCarrito => {
+//   catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
+//   cardVariedad = document.createElement("div");
+//   cardVariedad.setAttribute("class", "card cardVariedad col-2", )
+//   cardVariedad.innerHTML = `<div  style="width: 13rem;">
+//   <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+//   <div class="card-body">
+//     <h5 class="card-title">${mostrarCarrito.nombre}</h5>
+//     <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
+//     <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
+//     <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
+//     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+//   </div>
+// </div>`;
+//   catalogoVariedadFiltrada.appendChild(cardVariedad);
+// });
+
+// Filtro de Productos
+
+// Indica
+let filtroIndica = document.getElementById("filtroIndica");
+filtroIndica.oninput = () => {
+  mostrarIndica();
+};
+
+let seleccionIndica;
+
+function mostrarIndica() {
+  seleccionIndica = stockVariedades.filter((el) => el.variedad == "Indica");
+  seleccionIndica.forEach(indica => {
+    catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
+    cardVariedad = document.createElement("div");
+    cardVariedad.setAttribute("class", "card cardVariedad col-2",)
+    cardVariedad.innerHTML = `<div  style="width: 13rem;">
+  <img src="${indica.foto}" class="card-img-top mt-2" alt="...">
   <div class="card-body">
-    <h5 class="card-title">${mostrarCarrito.nombre}</h5>
-    <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
-    <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
+    <h5 class="card-title">${indica.nombre}</h5>
+    <h6><strong>Banco:</strong> ${indica.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${indica.precio}</p>
+    <p class="card-text fw-normal">${indica.descripcion}</p>
     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
   </div>
 </div>`;
-  catalogoVariedadFiltrada.appendChild(cardVariedad);
-});
+    catalogoVariedadFiltrada.appendChild(cardVariedad);
+    console.log(seleccionIndica.nombre);
+  })
+};
 
-// Filtro de Productos 
+// Filtro Sativa 
+
+let seleccionSativa;
+
+let filtroSativa = document.getElementById("filtroSativa");
+filtroSativa.oninput = () => {
+  mostrarSativa();
+}
+
+function mostrarSativa() {
+  seleccionSativa = stockVariedades.filter((el) => el.variedad == "Sativa");
+  seleccionSativa.forEach((sativa) => {
+    catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
+    cardVariedad = document.createElement("div");
+    cardVariedad.setAttribute("class", "card col-2 cardVariedad");
+    cardVariedad.innerHTML = `<div  style="width: 13rem;">
+   <img src="${sativa.foto}" class="card-img-top mt-2" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">${sativa.nombre}</h5>
+     <h6><strong>Banco:</strong> ${sativa.banco}</h6>
+     <p class="card-text fw-normal"> <strong>Precio:</strong> $${sativa.precio}</p>
+     <p class="card-text fw-normal">${sativa.descripcion}</p>
+     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+   </div>
+ </div>`;
+    catalogoVariedadFiltrada.appendChild(cardVariedad);
+    console.log(sativa);
+  })
+};
+
+// Filtro CBD 
+
+let filtroCbd = document.getElementById("filtroCbd");
+filtroCbd.oninput = () => {
+  mostrarCbd();
+};
+
+let seleccionCbd; 
+
+function mostrarCbd() {
+  seleccionCbd = stockVariedades.filter((el) => el.variedad == "CBD");
+  seleccionCbd.forEach((cbd) => {
+    catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
+    cardVariedad = document.createElement("div");
+    cardVariedad.setAttribute("class", "card col-2 cardVariedad");
+    cardVariedad.innerHTML = `<div  style="width: 13rem;">
+   <img src="${cbd.foto}" class="card-img-top mt-2" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">${cbd.nombre}</h5>
+     <h6><strong>Banco:</strong> ${cbd.banco}</h6>
+     <p class="card-text fw-normal"> <strong>Precio:</strong> $${cbd.precio}</p>
+     <p class="card-text fw-normal">${cbd.descripcion}</p>
+     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+   </div>
+ </div>`;
+    catalogoVariedadFiltrada.appendChild(cardVariedad);
+    console.log(cbd);
+  })
+};
+
+// Filtro Autoflorecientes 
+let seleccionAutos;
+
+let filtroAutos = document.getElementById("filtroAutoflorecientes");
+
+filtroAutos.oninput = () => {
+  mostrarAutos();
+};
+
+function mostrarAutos() {
+  seleccionAutos = stockVariedades.filter((el) => el.variedad == "Autofloreciente");
+  seleccionAutos.forEach(auto => {
+    catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
+    cardVariedad = document.createElement("div");
+    cardVariedad.setAttribute("class", "card col-2 cardVariedad");
+    cardVariedad.innerHTML = `<div  style="width: 13rem;">
+   <img src="${auto.foto}" class="card-img-top mt-2" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">${auto.nombre}</h5>
+     <h6><strong>Banco:</strong> ${auto.banco}</h6>
+     <p class="card-text fw-normal"> <strong>Precio:</strong> $${auto.precio}</p>
+     <p class="card-text fw-normal">${auto.descripcion}</p>
+     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+   </div>
+ </div>`;
+    catalogoVariedadFiltrada.appendChild(cardVariedad);
+    console.log(auto);
+  })
+};

@@ -1,52 +1,8 @@
 // Simulador de Compra
 
-const stockVariedades = [];
+import {stockVariedades} from "./catalogo.js";
 
-class Producto {
-  constructor(nombre, banco, variedad, precio) {
-    this.nombre = nombre;
-    this.banco = banco;
-    this.variedad = variedad;
-    this.precio = parseFloat(precio);
-    this.vendido = false;
-  }
-  vender() {
-    this.vendido = true;
-  }
-}
-stockVariedades.push(
-  new Producto("Indu Kush", "Dinafem", "Indica", 200, false)
-);
-stockVariedades.push(
-  new Producto("Citrus Skunk", "Shaman Genetics", "Sativa", 250, false)
-);
-stockVariedades.push(
-  new Producto("Jack Herer", "Sensi Seeds", "Hibrida", 250, false)
-);
-stockVariedades.push(
-  new Producto("Moby Dick", "Dinafem", "Hibrida", 250, false)
-);
-
-stockVariedades.push(
-  new Producto("Girl Scout Cookies", "Sensi Seeds", "Hibrida", 250, false)
-);
-stockVariedades.push(
-  new Producto("Gorila Glue #4", "Sensi Seeds", "Hibrida", 250, false)
-);
-stockVariedades.push(
-  new Producto("Skunk #1", "Sensi Seeds", "Hibrida", 250, false)
-);
-stockVariedades.push(
-  new Producto("Purple Kush", "Sensi Seeds", "Hibrida", 250, false)
-);
-stockVariedades.push(
-  new Producto("Gelato", "BSF Seeds", "Hibrida", 250, false)
-);
-stockVariedades.push(
-  new Producto("Red Poison", "Sweet Seeds", "Hibrida", 250, false)
-);
-
-let variedad;
+console.log(stockVariedades);
 let subtotal;
 let variedad_precio;
 let seleccionVariedad;
@@ -54,6 +10,8 @@ let cant_productos;
 let variedad_elegida;
 let costo_envio = 500;
 let total_compra;
+
+// Agregar al carrito los productos
 
 function procesoVenta() {
   seleccionVariedad = document.getElementById("ingresaVariedad");

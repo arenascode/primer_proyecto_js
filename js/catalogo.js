@@ -1,4 +1,5 @@
-const stockVariedades = [];
+// Creando el stock mediante objetos en Array
+export const stockVariedades = [];
 
 class Producto {
   constructor(id, nombre, banco, variedad, precio, foto, descripcion) {
@@ -36,7 +37,8 @@ stockVariedades.push(
     "El aroma y el sabor de Chocolope son intensos y ricos, con notas profundas a chocolate. Su efecto estimulante, enérgico y eufórico."
   )
 );
-stockVariedades.push(new Producto(4, "Blue Dream", "Humboldt Seeds", "Sativa", 3800, "../images/catalogo/sativa/blue-dream.jpeg", "Blue Dream es un híbrido de marihuana cuyo aroma recuerda mucho a Haze, a cítricos y a cedro. Su sabor tiene un intenso gusto a limón, pino, incienso, fruta dulce y Haze. Es una variedad de cannabis que produce un efecto potente y duradero con una sensación cerebral estimulante y clara."));
+stockVariedades.push(
+  new Producto(4, "Blue Dream", "Humboldt Seeds", "Sativa", 3800, "../images/catalogo/sativa/blue-dream.jpeg", "Blue Dream es un híbrido de marihuana cuyo aroma recuerda mucho a Haze, a cítricos y a cedro. Su sabor tiene un intenso gusto a limón, pino, incienso, fruta dulce y Haze. Es una variedad de cannabis que produce un efecto potente y duradero con una sensación cerebral estimulante y clara."));
 
 stockVariedades.push(
   new Producto(
@@ -167,22 +169,51 @@ stockVariedades.push(
 let catalogoVariedadFiltrada;
 let cardVariedad;
 
-// stockVariedades.forEach( mostrarCarrito => {
-//   catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
-//   cardVariedad = document.createElement("div");
-//   cardVariedad.setAttribute("class", "card cardVariedad col-2", )
-//   cardVariedad.innerHTML = `<div  style="width: 13rem;">
-//   <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
-//   <div class="card-body">
-//     <h5 class="card-title">${mostrarCarrito.nombre}</h5>
-//     <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
-//     <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
-//     <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
-//     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
-//   </div>
-// </div>`;
-//   catalogoVariedadFiltrada.appendChild(cardVariedad);
-// });
+catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
+
+stockVariedades.forEach(mostrarCarrito => {
+  cardVariedad = document.createElement("div");
+  cardVariedad.setAttribute("class", "card cardVariedad col-2", )
+  cardVariedad.innerHTML = `<div  style="width: 13rem;">
+  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${mostrarCarrito.nombre}</h5>
+    <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
+    <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
+    <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+  </div>
+</div>`;
+  catalogoVariedadFiltrada.appendChild(cardVariedad);
+});
+
+// Borrar Filtro 
+let botonBorrarFiltro = document.getElementById("limpiarFiltro");
+console.log(botonBorrarFiltro.value);
+botonBorrarFiltro.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (botonBorrarFiltro.value == "Limpiar Filtro") {
+    catalogoVariedadFiltrada.innerHTML = "";
+    stockVariedades.forEach((mostrarCarrito) => {
+      cardVariedad = document.createElement("div");
+      cardVariedad.setAttribute("class", "card cardVariedad col-2");
+      cardVariedad.innerHTML = `<div  style="width: 13rem;">
+  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${mostrarCarrito.nombre}</h5>
+    <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
+    <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
+    <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+  </div>
+</div>`;
+      catalogoVariedadFiltrada.appendChild(cardVariedad);
+    });
+    console.log("va a borrar el contenido");
+  } else {
+    console.log("No va a borrar nada");
+  }
+});
 
 // Filtro de Productos
 
@@ -195,7 +226,10 @@ filtroIndica.oninput = () => {
 let seleccionIndica;
 
 function mostrarIndica() {
+  // Borrar carrito para dejar solo la selección Indica
+  console.log(catalogoVariedadFiltrada);
   seleccionIndica = stockVariedades.filter((el) => el.variedad == "Indica");
+  catalogoVariedadFiltrada.innerHTML = "";
   seleccionIndica.forEach(indica => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");
@@ -211,11 +245,11 @@ function mostrarIndica() {
   </div>
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
-    console.log(seleccionIndica.nombre);
+    console.log(indica);
   })
 };
 
-// Filtro Sativa 
+// // Filtro Sativa 
 
 let seleccionSativa;
 
@@ -226,6 +260,7 @@ filtroSativa.oninput = () => {
 
 function mostrarSativa() {
   seleccionSativa = stockVariedades.filter((el) => el.variedad == "Sativa");
+  catalogoVariedadFiltrada.innerHTML = "";
   seleccionSativa.forEach((sativa) => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");
@@ -256,6 +291,7 @@ let seleccionCbd;
 
 function mostrarCbd() {
   seleccionCbd = stockVariedades.filter((el) => el.variedad == "CBD");
+  catalogoVariedadFiltrada.innerHTML = "";
   seleccionCbd.forEach((cbd) => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");
@@ -286,6 +322,7 @@ filtroAutos.oninput = () => {
 
 function mostrarAutos() {
   seleccionAutos = stockVariedades.filter((el) => el.variedad == "Autofloreciente");
+  catalogoVariedadFiltrada.innerHTML = "";
   seleccionAutos.forEach(auto => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");

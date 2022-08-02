@@ -66,13 +66,7 @@
     <div class="container-fluid containerCatalogo">
       <div class="catalogoFiltro">
         <h4>Selecciona tu preferencia</h4>
-        <!-- <select class="form-select" aria-label="Default select example">
-          <option selected>Variedades</option>
-          <option value="Indica" id="pruebaindica">Indica</option>
-          <option value="2">Sativa</option>
-          <option value="3">Autofloreciente</option>
-          <option value="4">CBD</option>
-        </select> -->
+        <form>
         <div class="form-check" id="filtroIndica">
           <input class="form-check-input " type="radio" name="flexRadio" id="flexRadio1">
           <label class="form-check-label" for="flexRadio1">
@@ -97,8 +91,11 @@
             CBD
           </label>
         </div>
+        <input type="reset" id="limpiarFiltro" value="Limpiar Filtro">
       </div>
+    </form>
       <div id="variedadCatalogo" class="row catalogoVariedadFiltrada">
+
       </div>
     </div>
     <div class="productoSugerido">

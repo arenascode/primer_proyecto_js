@@ -153,14 +153,16 @@
       </div>
     </div>
     <div id="newsletter" class="inscripcion">
-        <form id="Formulario" action="">
-          <legend>Suscribite y obtené un <strong>10% OFF</strong> en tu Próxima Compra</legend>
-          <input type="email" placeholder="Ingresá tu e-mail" id="email">
-          <input type="text" placeholder="Nombre y Apellido" id="nombreApellido"></input>
-          <input type="submit" value="Quiero el Descuento" id="btnSuscripcion">
-        </input>
-        </form>
-        <div id="mensajeJS"></div>
+<form id="my-form" action="https://formspree.io/f/mbjbrbrj" method="POST">
+  <legend>Suscribite y obtené un <strong>10%</strong> en tu próxima compra</legend>
+  <input type="email" name="email" placeholder="email"/>
+  <input type="text" name="message" placeholder="Nombre Completo"/>
+  <button id="my-form-button">Quiero el Descuento</button>
+</form>
+<div id="mensajeJS">
+<p id="my-form-status"></p>
+</div>
+
     </div>
     <footer class="piePagina">
         <div class="piePagina_msj">

@@ -1,6 +1,5 @@
 // Creando el stock mediante objetos en Array
 export const stockVariedades = [];
-
 class Producto {
   constructor(id, nombre, banco, variedad, precio, foto, descripcion) {
     this.id = id;
@@ -38,8 +37,15 @@ stockVariedades.push(
   )
 );
 stockVariedades.push(
-  new Producto(4, "Blue Dream", "Humboldt Seeds", "Sativa", 3800, "../images/catalogo/sativa/blue-dream.jpeg", "Blue Dream es un híbrido de marihuana cuyo aroma recuerda mucho a Haze, a cítricos y a cedro. Su sabor tiene un intenso gusto a limón, pino, incienso, fruta dulce y Haze. Es una variedad de cannabis que produce un efecto potente y duradero con una sensación cerebral estimulante y clara."));
-
+  new Producto(
+    4,
+    "Blue Dream",
+    "Humboldt Seeds",
+    "Sativa",
+    3800,
+    "../images/catalogo/sativa/blue-dream.jpeg", "Blue Dream es un híbrido de marihuana cuyo aroma recuerda mucho a Haze, a cítricos y a cedro. Su sabor tiene un intenso gusto a limón, pino, incienso, fruta dulce y Haze. Es una variedad de cannabis que produce un efecto potente y duradero con una sensación cerebral estimulante y clara."
+  )
+);
 stockVariedades.push(
   new Producto(
     5,
@@ -50,8 +56,8 @@ stockVariedades.push(
     "../images/catalogo/sativa/diesel.jpeg", "Diesel presenta una amalgama de aromas y de sabores intensos y dispares, y es capaz de poner los sentidos a pleno rendimiento. Inicialmente desprende un olor a gasóleo, dulce, intenso y complejo, y en boca aparecen notas a mandarina, a limón, a lima y a frutos exóticos, acompañadas de un regusto a diésel.¡Algo fuera de lo común que todo el mundo debería probar!"
   )
 );
-
-stockVariedades.push(new Producto(
+stockVariedades.push(
+  new Producto(
   6,
   "OG Kush",
   "Dinafem",
@@ -59,8 +65,8 @@ stockVariedades.push(new Producto(
   4700,
   "../images/catalogo/indica/og-kush.jpeg",
   "Es una de las variedades de cannabis más demandadas de California y, por ende, del mundo, y fue elegida como la mejor variedad de cannabis de todos los tiempos por la biblia cannábica, High Times. Una de las razones por las que todo el mundo habla de OG Kush es por su increíble sabor. Podríamos resumirlo como una explosiva mezcla de intenso olor a diesel, frutas del bosque y cítricos."
-));
-
+  )
+);
 stockVariedades.push(
   new Producto(7, "Green Posion", "Sweet Seeds", "Indica", 4000, "../images/catalogo/indica/green-poison.jpeg", "Green Poison desarrolla un espectacular planta de marihuana de crecimiento rápido y vigoroso, con ramas largas y flexibles sobre las que predomina un gran cogollo central.El aroma y sabor de esta variedad es exquisito, muy intenso, dulce y afrutado.")
 );
@@ -164,24 +170,23 @@ stockVariedades.push(
   )
 );
 
-
 // Mostrar todos los productos
-let catalogoVariedadFiltrada;
-let cardVariedad;
+export let catalogoVariedadFiltrada;
+export let cardVariedad;
 
 catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
 
-stockVariedades.forEach(mostrarCarrito => {
+stockVariedades.forEach(variedad => {
   cardVariedad = document.createElement("div");
-  cardVariedad.setAttribute("class", "card cardVariedad col-2", )
+  cardVariedad.setAttribute("class", "card cardVariedad col-2")
   cardVariedad.innerHTML = `<div  style="width: 13rem;">
-  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+  <img src="${variedad.foto}" class="card-img-top mt-2" alt="...">
   <div class="card-body">
-    <h5 class="card-title">${mostrarCarrito.nombre}</h5>
-    <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
-    <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
-    <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+    <h5 class="card-title">${variedad.nombre}</h5>
+    <h6><strong>Banco:</strong> ${variedad.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedad.precio}</p>
+    <p class="card-text fw-normal">${variedad.descripcion}</p>
+    <button type="button" id="botonAgregarCarrito" class="btn btn-secondary">Agregar Al Carrito</button
   </div>
 </div>`;
   catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -233,7 +238,7 @@ function mostrarIndica() {
   seleccionIndica.forEach(indica => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");
-    cardVariedad.setAttribute("class", "card cardVariedad col-2",)
+    cardVariedad.setAttribute("class", "card cardVariedad col-2", )
     cardVariedad.innerHTML = `<div  style="width: 13rem;">
   <img src="${indica.foto}" class="card-img-top mt-2" alt="...">
   <div class="card-body">
@@ -287,7 +292,7 @@ filtroCbd.oninput = () => {
   mostrarCbd();
 };
 
-let seleccionCbd; 
+let seleccionCbd;
 
 function mostrarCbd() {
   seleccionCbd = stockVariedades.filter((el) => el.variedad == "CBD");
@@ -341,3 +346,6 @@ function mostrarAutos() {
     console.log(auto);
   })
 };
+// Agregar los productos al Carrito 
+let listaCarrito = document.getElementById("listaCarrito");
+console.log(listaCarrito);

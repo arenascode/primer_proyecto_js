@@ -103,9 +103,10 @@ body {
   display: flex;
   flex-direction: column;
   column-gap: 10px;
-  align-items: initial; }
+  align-items: initial;
+  background-image: linear-gradient(to left, black, #602185); }
   .tituloCarrito h3 {
-    text-align: left;
+    text-align: center;
     justify-self: end;
     margin: 10px;
     font-size: 1.2rem; }
@@ -120,7 +121,9 @@ body {
 
 .listaCarrito {
   background-image: linear-gradient(to right, black, #42893c);
-  padding: 10px; }
+  padding: 10px;
+  width: 50%;
+  color: aliceblue; }
   .listaCarrito form {
     display: flex;
     flex-direction: column;
@@ -130,7 +133,7 @@ body {
 .detalleCompra {
   background-image: linear-gradient(to left, black, #602185);
   color: aliceblue;
-  width: -webkit-fill-available; }
+  width: 50%; }
 
 .containerCatalogo {
   display: inline-flex;

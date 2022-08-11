@@ -1,5 +1,5 @@
 // Creando el stock mediante objetos en Array
-export const stockVariedades = [];
+const stockVariedades = [];
 class Producto {
   constructor(id, nombre, banco, variedad, precio, foto, descripcion) {
     this.id = id;
@@ -169,10 +169,9 @@ stockVariedades.push(
     "¿Estás listo para recargar totalmente tu energía con la potencia de un híbrido? Esta marihuana proporciona un subidón cerebral estratosférico y un colocón corporal tremendo.Posee una compleja gama aromática, con notas intensas, sabrosas y terrosas, que solo se desarrollan tras el cosechado."
   )
 );
-
 // Mostrar todos los productos
-export let catalogoVariedadFiltrada;
-export let cardVariedad;
+let catalogoVariedadFiltrada;
+let cardVariedad;
 
 catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
 
@@ -186,38 +185,10 @@ stockVariedades.forEach(variedad => {
     <h6><strong>Banco:</strong> ${variedad.banco}</h6>
     <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedad.precio}</p>
     <p class="card-text fw-normal">${variedad.descripcion}</p>
-    <button type="button" id="botonAgregarCarrito" class="btn btn-secondary">Agregar Al Carrito</button
+    <button data-id="${variedad.id} " type="button" class="btnCarrito btn btn-secondary " onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
   catalogoVariedadFiltrada.appendChild(cardVariedad);
-});
-
-// Borrar Filtro 
-let botonBorrarFiltro = document.getElementById("limpiarFiltro");
-console.log(botonBorrarFiltro.value);
-botonBorrarFiltro.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (botonBorrarFiltro.value == "Limpiar Filtro") {
-    catalogoVariedadFiltrada.innerHTML = "";
-    stockVariedades.forEach((mostrarCarrito) => {
-      cardVariedad = document.createElement("div");
-      cardVariedad.setAttribute("class", "card cardVariedad col-2");
-      cardVariedad.innerHTML = `<div  style="width: 13rem;">
-  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${mostrarCarrito.nombre}</h5>
-    <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
-    <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
-    <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
-  </div>
-</div>`;
-      catalogoVariedadFiltrada.appendChild(cardVariedad);
-    });
-    console.log("va a borrar el contenido");
-  } else {
-    console.log("No va a borrar nada");
-  }
 });
 
 // Filtro de Productos
@@ -232,7 +203,6 @@ let seleccionIndica;
 
 function mostrarIndica() {
   // Borrar carrito para dejar solo la selección Indica
-  console.log(catalogoVariedadFiltrada);
   seleccionIndica = stockVariedades.filter((el) => el.variedad == "Indica");
   catalogoVariedadFiltrada.innerHTML = "";
   seleccionIndica.forEach(indica => {
@@ -246,7 +216,7 @@ function mostrarIndica() {
     <h6><strong>Banco:</strong> ${indica.banco}</h6>
     <p class="card-text fw-normal"> <strong>Precio:</strong> $${indica.precio}</p>
     <p class="card-text fw-normal">${indica.descripcion}</p>
-    <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+    <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -277,7 +247,7 @@ function mostrarSativa() {
      <h6><strong>Banco:</strong> ${sativa.banco}</h6>
      <p class="card-text fw-normal"> <strong>Precio:</strong> $${sativa.precio}</p>
      <p class="card-text fw-normal">${sativa.descripcion}</p>
-     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+     <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -308,7 +278,7 @@ function mostrarCbd() {
      <h6><strong>Banco:</strong> ${cbd.banco}</h6>
      <p class="card-text fw-normal"> <strong>Precio:</strong> $${cbd.precio}</p>
      <p class="card-text fw-normal">${cbd.descripcion}</p>
-     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+     <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -339,13 +309,56 @@ function mostrarAutos() {
      <h6><strong>Banco:</strong> ${auto.banco}</h6>
      <p class="card-text fw-normal"> <strong>Precio:</strong> $${auto.precio}</p>
      <p class="card-text fw-normal">${auto.descripcion}</p>
-     <a href="#" class="btn btn-secondary">Añadir Al Carrito</a>
+     <a href="#" class="btn btn-secondary" onclick="agregarProductoCarrito()">Añadir Al Carrito</a>
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
     console.log(auto);
   })
 };
+
+// Borrar Filtro 
+
+let botonBorrarFiltro = document.getElementById("limpiarFiltro");
+
+botonBorrarFiltro.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (botonBorrarFiltro.value == "Limpiar Filtro") {
+    catalogoVariedadFiltrada.innerHTML = "";
+    stockVariedades.forEach((mostrarCarrito) => {
+      cardVariedad = document.createElement("div");
+      cardVariedad.setAttribute("class", "card cardVariedad col-2");
+      cardVariedad.innerHTML = `<div  style="width: 13rem;">
+  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${mostrarCarrito.nombre}</h5>
+    <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
+    <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
+    <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+  </div>
+</div>`;
+      catalogoVariedadFiltrada.appendChild(cardVariedad);
+    });
+    console.log("va a borrar el contenido");
+  } else {
+    console.log("No va a borrar nada");
+  }
+});
+
+
 // Agregar los productos al Carrito 
-let listaCarrito = document.getElementById("listaCarrito");
-console.log(listaCarrito);
+export const carrito = [];
+
+function agregarProductoCarrito(event) {
+  let variedadEncontrada = stockVariedades.find((el) => el.id == event.target.dataset.id)
+  // console.log(variedadEncontrada);
+  carrito.push(variedadEncontrada)
+  console.log(carrito);
+  // if (variedadEncontrada == stockVariedades.id) {
+  //   console.log("probando si funciona");
+  // } else {
+  //   console.log("no funcionó, o sí?");
+  // }
+}
+// Mostrar el carrito => en otro js

@@ -3,9 +3,10 @@
   display: flex;
   flex-direction: column;
   column-gap: 10px;
- align-items:initial;
- h3 {
-  text-align: left;
+  align-items:initial;
+  background-image: linear-gradient(to left, black,#602185);
+  h3 {
+  text-align: center;
   justify-self: end;
   margin: 10px;
   font-size: 1.2rem;
@@ -23,6 +24,8 @@
 .listaCarrito {
 background-image: linear-gradient(to right, black,#42893c);
   padding: 10px;
+  width: 50%;
+  color:aliceblue;
   form {
     display: flex;
     flex-direction: column;
@@ -33,5 +36,5 @@ background-image: linear-gradient(to right, black,#42893c);
 .detalleCompra { 
   background-image: linear-gradient(to left, black,#602185 );;
   color:aliceblue;
-  width: -webkit-fill-available;
+  width: 50%; 
 }

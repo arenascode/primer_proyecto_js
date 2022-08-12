@@ -23,7 +23,7 @@ stockVariedades.push(
   )
 );
 stockVariedades.push(
-  new Producto(2, "Ice", "Royal Queen Seeds", "Indica", 4500, "../images/catalogo/indica/ice.jpeg", "¿Qué pasa cuando cruzas una afghana pura con una Northern Lights y una Skunk? Que obtienes la Indica Crystal Extreme (también conocida como ICE), una planta totalmente cubierta de glándulas de resina. Los cogollos producidos por este magnífico híbrido son tan escarchados y resplandecientes, que no podría tener un nombre más apropiado que sencillamente ICE(hielo en inglés).")
+  new Producto(2, "Ice", "Royal Queen Seeds", "Indica", 4500, "../images/catalogo/indica/ice.jpeg", "¿Qué pasa cuando cruzas una afghana pura con una Northern Lights y una Skunk? Que obtienes la Indica Crystal Extreme (también conocida como ICE), una planta totalmente cubierta de glándulas de resina.")
 );
 stockVariedades.push(
   new Producto(
@@ -58,13 +58,13 @@ stockVariedades.push(
 );
 stockVariedades.push(
   new Producto(
-  6,
-  "OG Kush",
-  "Dinafem",
-  "Indica",
-  4700,
-  "../images/catalogo/indica/og-kush.jpeg",
-  "Es una de las variedades de cannabis más demandadas de California y, por ende, del mundo, y fue elegida como la mejor variedad de cannabis de todos los tiempos por la biblia cannábica, High Times. Una de las razones por las que todo el mundo habla de OG Kush es por su increíble sabor. Podríamos resumirlo como una explosiva mezcla de intenso olor a diesel, frutas del bosque y cítricos."
+    6,
+    "OG Kush",
+    "Dinafem",
+    "Indica",
+    4700,
+    "../images/catalogo/indica/og-kush.jpeg",
+    "Es una de las variedades de cannabis más demandadas de California y, por ende, del mundo, y fue elegida como la mejor variedad de cannabis de todos los tiempos por la biblia cannábica, High Times. Una de las razones por las que todo el mundo habla de OG Kush es por su increíble sabor. Podríamos resumirlo como una explosiva mezcla de intenso olor a diesel, frutas del bosque y cítricos."
   )
 );
 stockVariedades.push(
@@ -175,11 +175,12 @@ let cardVariedad;
 
 catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
 
-stockVariedades.forEach(variedad => {
-  cardVariedad = document.createElement("div");
-  cardVariedad.setAttribute("class", "card cardVariedad col-2")
-  cardVariedad.innerHTML = `<div  style="width: 13rem;">
-  <img src="${variedad.foto}" class="card-img-top mt-2" alt="...">
+function mostrarCatalogo() {
+  stockVariedades.forEach(variedad => {
+    cardVariedad = document.createElement("div");
+    cardVariedad.setAttribute("class", "card cardVariedad col-2")
+    cardVariedad.innerHTML = `<div  style="width: 13rem;">
+  <img src="${variedad.foto}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${variedad.nombre}</h5>
     <h6><strong>Banco:</strong> ${variedad.banco}</h6>
@@ -188,9 +189,10 @@ stockVariedades.forEach(variedad => {
     <button data-id="${variedad.id} " type="button" class="btnCarrito btn btn-secondary " onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
-  catalogoVariedadFiltrada.appendChild(cardVariedad);
-});
-
+    catalogoVariedadFiltrada.appendChild(cardVariedad);
+  })
+};
+mostrarCatalogo();
 // Filtro de Productos
 
 // Indica
@@ -210,7 +212,7 @@ function mostrarIndica() {
     cardVariedad = document.createElement("div");
     cardVariedad.setAttribute("class", "card cardVariedad col-2", )
     cardVariedad.innerHTML = `<div  style="width: 13rem;">
-  <img src="${indica.foto}" class="card-img-top mt-2" alt="...">
+  <img src="${indica.foto}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${indica.nombre}</h5>
     <h6><strong>Banco:</strong> ${indica.banco}</h6>
@@ -241,7 +243,7 @@ function mostrarSativa() {
     cardVariedad = document.createElement("div");
     cardVariedad.setAttribute("class", "card col-2 cardVariedad");
     cardVariedad.innerHTML = `<div  style="width: 13rem;">
-   <img src="${sativa.foto}" class="card-img-top mt-2" alt="...">
+   <img src="${sativa.foto}" class="card-img-top" alt="...">
    <div class="card-body">
      <h5 class="card-title">${sativa.nombre}</h5>
      <h6><strong>Banco:</strong> ${sativa.banco}</h6>
@@ -272,7 +274,7 @@ function mostrarCbd() {
     cardVariedad = document.createElement("div");
     cardVariedad.setAttribute("class", "card col-2 cardVariedad");
     cardVariedad.innerHTML = `<div  style="width: 13rem;">
-   <img src="${cbd.foto}" class="card-img-top mt-2" alt="...">
+   <img src="${cbd.foto}" class="card-img-top" alt="...">
    <div class="card-body">
      <h5 class="card-title">${cbd.nombre}</h5>
      <h6><strong>Banco:</strong> ${cbd.banco}</h6>
@@ -303,7 +305,7 @@ function mostrarAutos() {
     cardVariedad = document.createElement("div");
     cardVariedad.setAttribute("class", "card col-2 cardVariedad");
     cardVariedad.innerHTML = `<div  style="width: 13rem;">
-   <img src="${auto.foto}" class="card-img-top mt-2" alt="...">
+   <img src="${auto.foto}" class="card-img-top" alt="...">
    <div class="card-body">
      <h5 class="card-title">${auto.nombre}</h5>
      <h6><strong>Banco:</strong> ${auto.banco}</h6>
@@ -329,7 +331,7 @@ botonBorrarFiltro.addEventListener("click", function (e) {
       cardVariedad = document.createElement("div");
       cardVariedad.setAttribute("class", "card cardVariedad col-2");
       cardVariedad.innerHTML = `<div  style="width: 13rem;">
-  <img src="${mostrarCarrito.foto}" class="card-img-top mt-2" alt="...">
+  <img src="${mostrarCarrito.foto}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${mostrarCarrito.nombre}</h5>
     <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
@@ -348,17 +350,37 @@ botonBorrarFiltro.addEventListener("click", function (e) {
 
 
 // Agregar los productos al Carrito 
-export const carrito = [];
+const carrito = [];
+
+let containerCarrito = document.getElementById("containerCarrito");
 
 function agregarProductoCarrito(event) {
   let variedadEncontrada = stockVariedades.find((el) => el.id == event.target.dataset.id)
-  // console.log(variedadEncontrada);
   carrito.push(variedadEncontrada)
   console.log(carrito);
-  // if (variedadEncontrada == stockVariedades.id) {
-  //   console.log("probando si funciona");
-  // } else {
-  //   console.log("no funcionó, o sí?");
-  // }
+  if (variedadEncontrada == undefined) {
+    console.log("No existe la variedad en en catalogo");
+  } else {
+    mostrarCarrito();
+    console.log("Si entró donde debería mostrar los produs");
+  }
+};
+
+function mostrarCarrito() {
+  containerCarrito.innerHTML= ``
+  carrito.forEach((variedadCarrito) => {
+    cardCarrito = document.createElement("div");
+    cardCarrito.setAttribute("class", "card cardVariedad col-2")
+    cardCarrito.innerHTML = `<div  style="width: 10rem;">
+  <div class="card-body">
+    <h5 class="card-title">${variedadCarrito.nombre}</h5>
+    <h6><strong>Banco:</strong> ${variedadCarrito.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedadCarrito.precio}</p>
+    
+    <button data-id="${variedadCarrito.id} " type="button" class="btnCarrito btn btn-secondary"> Eliminar </button>
+  </div>
+</div>`;
+    containerCarrito.appendChild(cardCarrito);
+  })
 }
 // Mostrar el carrito => en otro js

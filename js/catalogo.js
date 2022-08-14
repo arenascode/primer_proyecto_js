@@ -218,7 +218,7 @@ function mostrarIndica() {
     <h6><strong>Banco:</strong> ${indica.banco}</h6>
     <p class="card-text fw-normal"> <strong>Precio:</strong> $${indica.precio}</p>
     <p class="card-text fw-normal">${indica.descripcion}</p>
-    <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+    <button data-id="${indica.id} type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -350,14 +350,19 @@ botonBorrarFiltro.addEventListener("click", function (e) {
 
 
 // Agregar los productos al Carrito 
-const carrito = [];
+let carrito = [];
 
 let containerCarrito = document.getElementById("containerCarrito");
+// Guardemos los productos en el carrito primero 
+
+if (localStorage.getItem("carrito")) {
+  carrito = JSON.parse(localStorage.getItem("carrito"));
+  mostrarCarrito();
+} 
 
 function agregarProductoCarrito(event) {
   let variedadEncontrada = stockVariedades.find((el) => el.id == event.target.dataset.id)
   carrito.push(variedadEncontrada)
-  console.log(carrito);
   if (variedadEncontrada == undefined) {
     console.log("No existe la variedad en en catalogo");
   } else {
@@ -377,10 +382,29 @@ function mostrarCarrito() {
     <h6><strong>Banco:</strong> ${variedadCarrito.banco}</h6>
     <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedadCarrito.precio}</p>
     
-    <button data-id="${variedadCarrito.id} " type="button" class="btnCarrito btn btn-secondary"> Eliminar </button>
+    <button data-id="${variedadCarrito.id}" type="button" class="btnCarrito btn btn-secondary" onclick="eliminarProductoCarrito(${variedadCarrito.id})"> Eliminar </button>
   </div>
 </div>`;
     containerCarrito.appendChild(cardCarrito);
   })
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 }
-// Mostrar el carrito => en otro js
+console.log(document.getElementsByClassName("btnCarrito"));
+
+function eliminarProductoCarrito(id) {
+  let idVariedad = carrito.findIndex(item =>
+    item.id == id)
+  console.log(idVariedad);
+  carrito = JSON.parse(localStorage.getItem("carrito"));
+  carrito.splice(idVariedad, 1);
+  console.log(carrito);
+  mostrarCarrito();
+}
+;
+
+// function filtro(event) {
+//   if (event.target.dataset.id == ) {
+    
+//   }
+
+// }

@@ -17,7 +17,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    .form-check {
+      margin-right: 3px;
     }
+    #limpiarFiltro {
+      margin-left:3px;
+    }}
   }
   .catalogoVariedadFiltrada {
     height: 600px;
@@ -43,10 +48,18 @@
   }
 }
 }
-#containerCarrito {
-  width: fit-content;
-  display: inline-flex;
-  column-gap: 1%;
-  flex-wrap: wrap;
-  
+.cardCarrito {
+  margin: 3px;
+  img {
+    padding:2px;
+  }
+  .card-body {
+    padding: 2px;
+  }
+  hr {
+    margin: 0;
+  }
+  p {
+    margin-bottom: 2px;
+  }
 }

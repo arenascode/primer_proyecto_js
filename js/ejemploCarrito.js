@@ -54,6 +54,7 @@ function mostrarStock() {
                   <button 
                       class="btn btn-primary" 
                       data-id=${stock[i].id}
+                      data-img=
                       data-nombre=${stock[i].nombre.replaceAll(
                         " ",
                         "_"
@@ -155,3 +156,14 @@ function actualizarTotal() {
 
 // Llamamos la función que renderiza los productos en stock para generar la vista
 mostrarStock();
+
+{/* <div  style="max-width: 100px;">
+    <img src="${variedadCarrito.foto}" class="img-fluid rounded-start" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${variedadCarrito.nombre}</h5>
+    <h6><strong>Banco:</strong> ${variedadCarrito.banco}</h6>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedadCarrito.precio}</p>
+    
+    <button data-id="${variedadCarrito.id}" type="button" class="btnCarrito btn btn-secondary" onclick="eliminarProductoCarrito(${variedadCarrito.id})"> Eliminar </button>
+  </div>
+</div> */}

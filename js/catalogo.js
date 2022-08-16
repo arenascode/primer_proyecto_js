@@ -186,7 +186,8 @@ function mostrarCatalogo() {
     <h6><strong>Banco:</strong> ${variedad.banco}</h6>
     <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedad.precio}</p>
     <p class="card-text fw-normal">${variedad.descripcion}</p>
-    <button data-id="${variedad.id} " type="button" class="btnCarrito btn btn-secondary " onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+    <button data-id=${variedad.id} data-nombre=${variedad.nombre.replaceAll(" ", "_")}
+    data-img=${variedad.foto} data-precio=${variedad.precio} type="button" class="btnCarrito btn btn-secondary " onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -194,7 +195,6 @@ function mostrarCatalogo() {
 };
 mostrarCatalogo();
 // Filtro de Productos
-
 // Indica
 let filtroIndica = document.getElementById("filtroIndica");
 filtroIndica.oninput = () => {
@@ -349,9 +349,18 @@ botonBorrarFiltro.addEventListener("click", function (e) {
 });
 
 
-// Agregar los productos al Carrito 
+// Agregar los productos al Carrito
+
 let carrito = [];
 
+class constructorVariedadCarrito {
+  constructor(id, nombre, precio, img) {
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = precio;
+    this.img = img;
+  }
+}
 let containerCarrito = document.getElementById("containerCarrito");
 // Guardemos los productos en el carrito primero 
 
@@ -361,35 +370,53 @@ if (localStorage.getItem("carrito")) {
 } 
 
 function agregarProductoCarrito(event) {
-  let variedadEncontrada = stockVariedades.find((el) => el.id == event.target.dataset.id)
-  carrito.push(variedadEncontrada)
-  if (variedadEncontrada == undefined) {
-    console.log("No existe la variedad en en catalogo");
+  let variedadEncontrada = carrito.findIndex((el) => el.id == event.target.dataset.id);
+  console.log(carrito);
+  if (variedadEncontrada == -1) {
+    console.log("No existe la variedad en el catalogo, hay que crearla");
+    let nuevaCardCarrito = new constructorVariedadCarrito(
+      event.target.dataset.id,
+      event.target.dataset.nombre,
+      event.target.dataset.precio,
+      event.target.dataset.img,
+      )
+      nuevaCardCarrito.cantidad = 1;
+    carrito.push(nuevaCardCarrito);
+    console.log(nuevaCardCarrito);
   } else {
-    mostrarCarrito();
-    console.log("Si entró donde debería mostrar los produs");
+    console.log("Ya existe la variedad en el carrito. Se sumará 1");
+    carrito[variedadEncontrada].cantidad += 1;
   }
+  mostrarCarrito();
 };
 
 function mostrarCarrito() {
   containerCarrito.innerHTML= ``
   carrito.forEach((variedadCarrito) => {
     cardCarrito = document.createElement("div");
-    cardCarrito.setAttribute("class", "card cardVariedad col-2")
-    cardCarrito.innerHTML = `<div  style="width: 10rem;">
-  <div class="card-body">
-    <h5 class="card-title">${variedadCarrito.nombre}</h5>
-    <h6><strong>Banco:</strong> ${variedadCarrito.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedadCarrito.precio}</p>
-    
-    <button data-id="${variedadCarrito.id}" type="button" class="btnCarrito btn btn-secondary" onclick="eliminarProductoCarrito(${variedadCarrito.id})"> Eliminar </button>
+    cardCarrito.setAttribute("class", "card cardCarrito")
+    cardCarrito.innerHTML = `<div class="card text-bg-dark" style="max-width: 250px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${variedadCarrito.img}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-title">Variedad:  <strong>${variedadCarrito.nombre.replaceAll("_", " ")}</strong></p>
+        <hr>
+        <p class="card-text">Precio: <strong>$${variedadCarrito.precio}</strong></p>
+        <p>Cantidad: ${variedadCarrito.cantidad}</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button data-id="${variedadCarrito.id}" type="button" class="btnCarrito btn btn-outline-danger btn-sm" onclick="eliminarProductoCarrito(${variedadCarrito.id})"> Borrar </button></div>
+      </div>
+    </div>
   </div>
 </div>`;
     containerCarrito.appendChild(cardCarrito);
   })
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
-console.log(document.getElementsByClassName("btnCarrito"));
+
 
 function eliminarProductoCarrito(id) {
   let idVariedad = carrito.findIndex(item =>
@@ -397,7 +424,6 @@ function eliminarProductoCarrito(id) {
   console.log(idVariedad);
   carrito = JSON.parse(localStorage.getItem("carrito"));
   carrito.splice(idVariedad, 1);
-  console.log(carrito);
   mostrarCarrito();
 }
 ;

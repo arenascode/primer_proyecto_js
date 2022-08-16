@@ -1,4 +1,5 @@
 .navbar {
+  background-image: linear-gradient(to left, black, #42893c);
   flex-direction: row;
   flex-wrap: inherit;
   column-gap: 10px; }
@@ -154,6 +155,10 @@ body {
         display: flex;
         justify-content: center;
         flex-wrap: wrap; }
+        .catalogoPrincipal .containerCatalogo .catalogoFiltro form .form-check {
+          margin-right: 3px; }
+        .catalogoPrincipal .containerCatalogo .catalogoFiltro form #limpiarFiltro {
+          margin-left: 3px; }
     .catalogoPrincipal .containerCatalogo .catalogoVariedadFiltrada {
       height: 600px;
       display: flex;
@@ -174,8 +179,13 @@ body {
     .catalogoPrincipal .cardVariedad p {
       text-align: justify; }
 
-#containerCarrito {
-  width: fit-content;
-  display: inline-flex;
-  column-gap: 1%;
-  flex-wrap: wrap; }
+.cardCarrito {
+  margin: 3px; }
+  .cardCarrito img {
+    padding: 2px; }
+  .cardCarrito .card-body {
+    padding: 2px; }
+  .cardCarrito hr {
+    margin: 0; }
+  .cardCarrito p {
+    margin-bottom: 2px; }

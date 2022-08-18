@@ -367,9 +367,18 @@ class constructorVariedadCarrito {
 let containerCarrito = document.getElementById("containerCarrito");
 // Guardemos los productos en el carrito primero 
 
-if (localStorage.getItem("carrito")) {
+if (
+  localStorage.getItem("carrito"),
+  localStorage.getItem("subtotal"),
+  localStorage.getItem("costoEnvio"),
+  localStorage.getItem("total")
+) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
+  subtotal = JSON.parse(localStorage.getItem("subtotal"));
+  costoEnvio = JSON.parse(localStorage.getItem("costoEnvio"));
+  total = JSON.parse(localStorage.getItem("total"));
   mostrarCarrito();
+  actualizarTotal();
 } 
 
 function agregarProductoCarrito(event) {
@@ -419,6 +428,9 @@ function mostrarCarrito() {
     containerCarrito.appendChild(cardCarrito);
   })
   localStorage.setItem("carrito", JSON.stringify(carrito));
+  localStorage.setItem("subtotal", JSON.stringify(subtotal));
+  localStorage.setItem("costoEnvio", JSON.stringify(costoEnvio));
+  localStorage.setItem("total", JSON.stringify(total))
 }
 
 
@@ -429,6 +441,7 @@ function eliminarProductoCarrito(id) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
   carrito.splice(idVariedad, 1);
   mostrarCarrito();
+  actualizarTotal();
 };
 
 function vaciarCarrito() {

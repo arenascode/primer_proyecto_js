@@ -352,7 +352,10 @@ botonBorrarFiltro.addEventListener("click", function (e) {
 // Agregar los productos al Carrito
 
 let carrito = [];
-
+let total = 0;
+let subtotal = 0;
+let costoEnvio = 500;
+  
 class constructorVariedadCarrito {
   constructor(id, nombre, precio, img) {
     this.id = id;
@@ -388,12 +391,13 @@ function agregarProductoCarrito(event) {
     carrito[variedadEncontrada].cantidad += 1;
   }
   mostrarCarrito();
+  actualizarTotal();
 };
 
 function mostrarCarrito() {
   containerCarrito.innerHTML= ``
   carrito.forEach((variedadCarrito) => {
-    cardCarrito = document.createElement("div");
+  let cardCarrito = document.createElement("div");
     cardCarrito.setAttribute("class", "card cardCarrito")
     cardCarrito.innerHTML = `<div class="card text-bg-dark" style="max-width: 250px;">
   <div class="row g-0">
@@ -425,12 +429,32 @@ function eliminarProductoCarrito(id) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
   carrito.splice(idVariedad, 1);
   mostrarCarrito();
+};
+
+function vaciarCarrito() {
+  carrito = [];
+  mostrarCarrito();
+  total = 0;
+  actualizarTotal();
+  document.querySelector("#resumenCompra").innerHTML = ` `
 }
-;
+
+function actualizarTotal() {
+  let subtotal = 0;
+  carrito.forEach((item) => (
+    subtotal += item.cantidad * item.precio));
+  let total = subtotal + costoEnvio;
+  document.querySelector("#resumenCompra").innerHTML = `<h4>Subtotal: $${subtotal} </h4>
+  <strong>+</strong>
+  <h5>Costo de Envío: $${costoEnvio}</h5>
+  <hr>
+  Total de tu compra: $${total}`;
+  
+}
 
 // function filtro(event) {
 //   if (event.target.dataset.id == ) {
-    
+
 //   }
 
 // }

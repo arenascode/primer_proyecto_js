@@ -56,7 +56,7 @@
         </form>
       </div>
       <div class="container carrito">
-        <a href="./carrito.html"><img src="../images/carritoIcono.png" alt="carrito" width="24px" height="auto"></a>
+        <a href="#containerCarrito"><img src="../images/carritoIcono.png" alt="carrito" width="24px" height="auto"></a>
       </div>
     </nav>
   </header>
@@ -100,11 +100,14 @@
     </div>
     <div class="containerCarrito">
       <h3>Tu elección:</h3>
-      <div id="containerCarrito"></div>
-        <button class="btn btn-danger" onclick="vaciarCarrito()" id="btnVaciar">Vaciar</button>
+      <div class="seccionCarrito">
+      <div id="containerCarrito" class="container"></div>
+      <div id="resumenCompra"></div>
+    </div>
+      <button class="btn btn-danger" onclick="vaciarCarrito()" id="btnVaciar">Vaciar</button>
     </div>
   </section>
-  <div id="resumenCompra"></div>
+  
   <footer class="piePagina">
     <div class="piePagina_msj">
       Esta pagina web es solo de caracter educativo. No tiene fines comerciales y los derechos del material digital

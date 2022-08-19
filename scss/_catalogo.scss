@@ -1,10 +1,10 @@
 .catalogoPrincipal {
-  display: flex;
+  
 .containerCatalogo {
-  width: 80%;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   .catalogoFiltro {
     width: max-content;
     border-radius: 10px;
@@ -14,9 +14,6 @@
     position: relative;
     form {
     align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     .form-check {
       margin-right: 3px;
     }
@@ -48,8 +45,22 @@
   }
 }
 }
+#containerCarrito {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.seccionCarrito {
+  display:flex;
+  
+}
 .cardCarrito {
   margin: 3px;
+  background-color: #212529;
+  border: solid 1px white;
   img {
     padding:2px;
   }
@@ -62,4 +73,18 @@
   p {
     margin-bottom: 2px;
   }
+}
+#resumenCompra {
+    margin-right: 1rem;
+    border: solid 1.5px white;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: honeydew;
+    color: black;
+}
+#btnVaciar {
+  margin: 10px;
+}
+#btnComprar {
+  margin-top: 4rem;
 }

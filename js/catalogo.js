@@ -179,7 +179,7 @@ function mostrarCatalogo() {
   stockVariedades.forEach(variedad => {
     cardVariedad = document.createElement("div");
     cardVariedad.setAttribute("class", "card cardVariedad col-2")
-    cardVariedad.innerHTML = `<div  style="width: 13rem;">
+    cardVariedad.innerHTML = `<div  style="width: 15rem;">
   <img src="${variedad.foto}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${variedad.nombre}</h5>
@@ -408,7 +408,7 @@ function mostrarCarrito() {
   carrito.forEach((variedadCarrito) => {
   let cardCarrito = document.createElement("div");
     cardCarrito.setAttribute("class", "card cardCarrito")
-    cardCarrito.innerHTML = `<div class="card text-bg-dark" style="max-width: 250px;">
+    cardCarrito.innerHTML = `<div class="card text-bg-dark" style="max-width: 200px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="${variedadCarrito.img}" class="img-fluid rounded-start" alt="...">
@@ -457,11 +457,15 @@ function actualizarTotal() {
   carrito.forEach((item) => (
     subtotal += item.cantidad * item.precio));
   let total = subtotal + costoEnvio;
-  document.querySelector("#resumenCompra").innerHTML = `<h4>Subtotal: $${subtotal} </h4>
+  
+  document.querySelector(
+    "#resumenCompra"
+  ).innerHTML = `<h5>Subtotal: $${subtotal} </h5>
   <strong>+</strong>
-  <h5>Costo de Envío: $${costoEnvio}</h5>
+  <h6>Costo de Envío: $${costoEnvio}</h6>
   <hr>
-  Total de tu compra: $${total}`;
+  Total de tu compra: <strong>$${total}</strong>
+  <button class="btn btn-success" onclick="confirmarCompra()" id="btnComprar">Confirmar Compra</button>`;
   
 }
 

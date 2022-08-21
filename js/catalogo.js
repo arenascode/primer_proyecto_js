@@ -254,9 +254,16 @@ function mostrarSativa() {
    <div class="card-body">
      <h5 class="card-title">${sativa.nombre}</h5>
      <h6><strong>Banco:</strong> ${sativa.banco}</h6>
-     <p class="card-text fw-normal"> <strong>Precio:</strong> $${sativa.precio}</p>
+     <p class="card-text fw-normal"> <strong>Precio:</strong> $${
+       sativa.precio
+     }</p>
      <p class="card-text fw-normal">${sativa.descripcion}</p>
-     <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+     <button data-id=${sativa.id} data-nombre=${sativa.nombre.replaceAll(
+      " ",
+      "_"
+    )} data-img=${sativa.foto} data-precio=${
+      sativa.precio
+    } type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -287,7 +294,12 @@ function mostrarCbd() {
      <h6><strong>Banco:</strong> ${cbd.banco}</h6>
      <p class="card-text fw-normal"> <strong>Precio:</strong> $${cbd.precio}</p>
      <p class="card-text fw-normal">${cbd.descripcion}</p>
-     <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+     <button data-id=${cbd.id} data-nombre=${cbd.nombre.replaceAll(
+      " ",
+      "_"
+    )} data-img=${cbd.foto} data-precio=${
+      cbd.precio
+    } type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -316,9 +328,16 @@ function mostrarAutos() {
    <div class="card-body">
      <h5 class="card-title">${auto.nombre}</h5>
      <h6><strong>Banco:</strong> ${auto.banco}</h6>
-     <p class="card-text fw-normal"> <strong>Precio:</strong> $${auto.precio}</p>
+     <p class="card-text fw-normal"> <strong>Precio:</strong> $${
+       auto.precio
+     }</p>
      <p class="card-text fw-normal">${auto.descripcion}</p>
-     <a href="#" class="btn btn-secondary" onclick="agregarProductoCarrito()">Añadir Al Carrito</a>
+     <button data-id=${auto.id} data-nombre=${auto.nombre.replaceAll(
+      " ",
+      "_"
+    )} data-img=${auto.foto} data-precio=${
+      auto.precio
+    } type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
@@ -342,9 +361,16 @@ botonBorrarFiltro.addEventListener("click", function (e) {
   <div class="card-body">
     <h5 class="card-title">${mostrarCarrito.nombre}</h5>
     <h6><strong>Banco:</strong> ${mostrarCarrito.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${mostrarCarrito.precio}</p>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${
+      mostrarCarrito.precio
+    }</p>
     <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
-    <button type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+    <button data-id=${mostrarCarrito.id} data-nombre=${mostrarCarrito.nombre.replaceAll(
+        " ",
+        "_"
+      )} data-img=${mostrarCarrito.foto} data-precio=${
+        mostrarCarrito.precio
+      } type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
       catalogoVariedadFiltrada.appendChild(cardVariedad);

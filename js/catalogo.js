@@ -216,13 +216,20 @@ function mostrarIndica() {
   <div class="card-body">
     <h5 class="card-title">${indica.nombre}</h5>
     <h6><strong>Banco:</strong> ${indica.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${indica.precio}</p>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${
+      indica.precio
+    }</p>
     <p class="card-text fw-normal">${indica.descripcion}</p>
-    <button data-id="${indica.id} type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+    <button data-id=${indica.id} data-nombre=${indica.nombre.replaceAll(
+      " ",
+      "_"
+    )} data-img=${indica.foto} data-precio=${
+      indica.precio
+    } type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
-    console.log(indica);
+    console.log(seleccionIndica);
   })
 };
 
@@ -253,7 +260,7 @@ function mostrarSativa() {
    </div>
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
-    console.log(sativa);
+    console.log(seleccionSativa);
   })
 };
 
@@ -378,7 +385,6 @@ if (
   costoEnvio = JSON.parse(localStorage.getItem("costoEnvio"));
   total = JSON.parse(localStorage.getItem("total"));
   mostrarCarrito();
-  actualizarTotal();
 } 
 
 function agregarProductoCarrito(event) {
@@ -442,6 +448,7 @@ function eliminarProductoCarrito(id) {
   carrito.splice(idVariedad, 1);
   mostrarCarrito();
   actualizarTotal();
+  ultimaVariedad();
 };
 
 function vaciarCarrito() {
@@ -464,11 +471,20 @@ function actualizarTotal() {
   <strong>+</strong>
   <h6>Costo de Envío: $${costoEnvio}</h6>
   <hr>
-  Total de tu compra: <strong>$${total}</strong>
+  Total de tu Compra: <strong>$${total}</strong>
   <button class="btn btn-success" onclick="confirmarCompra()" id="btnComprar">Confirmar Compra</button>`;
   
 }
-
+console.log(carrito.length);
+// Eliminar container de Resumen Compra cuando se borra el ultimo producto de forma individual 
+function ultimaVariedad() {
+  if (carrito.length == 0) {
+    document.querySelector("#resumenCompra").innerHTML = ` `
+    console.log("aer si ta vacio");
+  } else {
+    console.log("aer 2 no ta vacio");
+  }
+}
 // function filtro(event) {
 //   if (event.target.dataset.id == ) {
 

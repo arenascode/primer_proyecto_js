@@ -23,7 +23,15 @@ stockVariedades.push(
   )
 );
 stockVariedades.push(
-  new Producto(2, "Ice", "Royal Queen Seeds", "Indica", 4500, "../images/catalogo/indica/ice.jpeg", "¿Qué pasa cuando cruzas una afghana pura con una Northern Lights y una Skunk? Que obtienes la Indica Crystal Extreme (también conocida como ICE), una planta totalmente cubierta de glándulas de resina.")
+  new Producto(
+    2,
+    "Ice",
+    "Royal Queen Seeds",
+    "Indica",
+    4500,
+    "../images/catalogo/indica/ice.jpeg",
+    "¿Qué pasa cuando cruzas una afghana pura con una Northern Lights y una Skunk? Que obtienes la Indica Crystal Extreme (también conocida como ICE), una planta totalmente cubierta de glándulas de resina."
+  )
 );
 stockVariedades.push(
   new Producto(
@@ -43,7 +51,8 @@ stockVariedades.push(
     "Humboldt Seeds",
     "Sativa",
     3800,
-    "../images/catalogo/sativa/blue-dream.jpeg", "Blue Dream es un híbrido de marihuana cuyo aroma recuerda mucho a Haze, a cítricos y a cedro. Su sabor tiene un intenso gusto a limón, pino, incienso, fruta dulce y Haze. Es una variedad de cannabis que produce un efecto potente y duradero con una sensación cerebral estimulante y clara."
+    "../images/catalogo/sativa/blue-dream.jpeg",
+    "Blue Dream es un híbrido de marihuana cuyo aroma recuerda mucho a Haze, a cítricos y a cedro. Su sabor tiene un intenso gusto a limón, pino, incienso, fruta dulce y Haze. Es una variedad de cannabis que produce un efecto potente y duradero con una sensación cerebral estimulante y clara."
   )
 );
 stockVariedades.push(
@@ -53,7 +62,8 @@ stockVariedades.push(
     "Dinafem",
     "Sativa",
     4600,
-    "../images/catalogo/sativa/diesel.jpeg", "Diesel presenta una amalgama de aromas y de sabores intensos y dispares, y es capaz de poner los sentidos a pleno rendimiento. Inicialmente desprende un olor a gasóleo, dulce, intenso y complejo, y en boca aparecen notas a mandarina, a limón, a lima y a frutos exóticos, acompañadas de un regusto a diésel.¡Algo fuera de lo común que todo el mundo debería probar!"
+    "../images/catalogo/sativa/diesel.jpeg",
+    "Diesel presenta una amalgama de aromas y de sabores intensos y dispares, y es capaz de poner los sentidos a pleno rendimiento. Inicialmente desprende un olor a gasóleo, dulce, intenso y complejo, y en boca aparecen notas a mandarina, a limón, a lima y a frutos exóticos, acompañadas de un regusto a diésel.¡Algo fuera de lo común que todo el mundo debería probar!"
   )
 );
 stockVariedades.push(
@@ -68,7 +78,15 @@ stockVariedades.push(
   )
 );
 stockVariedades.push(
-  new Producto(7, "Green Posion", "Sweet Seeds", "Indica", 4000, "../images/catalogo/indica/green-poison.jpeg", "Green Poison desarrolla un espectacular planta de marihuana de crecimiento rápido y vigoroso, con ramas largas y flexibles sobre las que predomina un gran cogollo central.El aroma y sabor de esta variedad es exquisito, muy intenso, dulce y afrutado.")
+  new Producto(
+    7,
+    "Green Posion",
+    "Sweet Seeds",
+    "Indica",
+    4000,
+    "../images/catalogo/indica/green-poison.jpeg",
+    "Green Poison desarrolla un espectacular planta de marihuana de crecimiento rápido y vigoroso, con ramas largas y flexibles sobre las que predomina un gran cogollo central.El aroma y sabor de esta variedad es exquisito, muy intenso, dulce y afrutado."
+  )
 );
 stockVariedades.push(
   new Producto(
@@ -176,23 +194,30 @@ let cardVariedad;
 catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
 
 function mostrarCatalogo() {
-  stockVariedades.forEach(variedad => {
+  stockVariedades.forEach((variedad) => {
     cardVariedad = document.createElement("div");
-    cardVariedad.setAttribute("class", "card cardVariedad col-2")
+    cardVariedad.setAttribute("class", "card cardVariedad col-2");
     cardVariedad.innerHTML = `<div  style="width: 15rem;">
   <img src="${variedad.foto}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${variedad.nombre}</h5>
     <h6><strong>Banco:</strong> ${variedad.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${variedad.precio}</p>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${
+      variedad.precio
+    }</p>
     <p class="card-text fw-normal">${variedad.descripcion}</p>
-    <button data-id=${variedad.id} data-nombre=${variedad.nombre.replaceAll(" ", "_")}
-    data-img=${variedad.foto} data-precio=${variedad.precio} type="button" class="btnCarrito btn btn-secondary " onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+    <button data-id=${variedad.id} data-nombre=${variedad.nombre.replaceAll(
+      " ",
+      "_"
+    )}
+    data-img=${variedad.foto} data-precio=${
+      variedad.precio
+    } type="button" class="btnCarrito btn btn-secondary " onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
-  })
-};
+  });
+}
 mostrarCatalogo();
 // Filtro de Productos
 // Indica
@@ -207,10 +232,10 @@ function mostrarIndica() {
   // Borrar carrito para dejar solo la selección Indica
   seleccionIndica = stockVariedades.filter((el) => el.variedad == "Indica");
   catalogoVariedadFiltrada.innerHTML = "";
-  seleccionIndica.forEach(indica => {
+  seleccionIndica.forEach((indica) => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");
-    cardVariedad.setAttribute("class", "card cardVariedad col-2", )
+    cardVariedad.setAttribute("class", "card cardVariedad col-2");
     cardVariedad.innerHTML = `<div  style="width: 13rem;">
   <img src="${indica.foto}" class="card-img-top" alt="...">
   <div class="card-body">
@@ -230,17 +255,17 @@ function mostrarIndica() {
 </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
     console.log(seleccionIndica);
-  })
-};
+  });
+}
 
-// // Filtro Sativa 
+// // Filtro Sativa
 
 let seleccionSativa;
 
 let filtroSativa = document.getElementById("filtroSativa");
 filtroSativa.oninput = () => {
   mostrarSativa();
-}
+};
 
 function mostrarSativa() {
   seleccionSativa = stockVariedades.filter((el) => el.variedad == "Sativa");
@@ -268,10 +293,10 @@ function mostrarSativa() {
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
     console.log(seleccionSativa);
-  })
-};
+  });
+}
 
-// Filtro CBD 
+// Filtro CBD
 
 let filtroCbd = document.getElementById("filtroCbd");
 filtroCbd.oninput = () => {
@@ -304,10 +329,10 @@ function mostrarCbd() {
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
     console.log(cbd);
-  })
-};
+  });
+}
 
-// Filtro Autoflorecientes 
+// Filtro Autoflorecientes
 let seleccionAutos;
 
 let filtroAutos = document.getElementById("filtroAutoflorecientes");
@@ -317,9 +342,11 @@ filtroAutos.oninput = () => {
 };
 
 function mostrarAutos() {
-  seleccionAutos = stockVariedades.filter((el) => el.variedad == "Autofloreciente");
+  seleccionAutos = stockVariedades.filter(
+    (el) => el.variedad == "Autofloreciente"
+  );
   catalogoVariedadFiltrada.innerHTML = "";
-  seleccionAutos.forEach(auto => {
+  seleccionAutos.forEach((auto) => {
     catalogoVariedadFiltrada = document.getElementById("variedadCatalogo");
     cardVariedad = document.createElement("div");
     cardVariedad.setAttribute("class", "card col-2 cardVariedad");
@@ -342,10 +369,10 @@ function mostrarAutos() {
  </div>`;
     catalogoVariedadFiltrada.appendChild(cardVariedad);
     console.log(auto);
-  })
-};
+  });
+}
 
-// Borrar Filtro 
+// Borrar Filtro
 
 let botonBorrarFiltro = document.getElementById("limpiarFiltro");
 
@@ -365,10 +392,11 @@ botonBorrarFiltro.addEventListener("click", function (e) {
       mostrarCarrito.precio
     }</p>
     <p class="card-text fw-normal">${mostrarCarrito.descripcion}</p>
-    <button data-id=${mostrarCarrito.id} data-nombre=${mostrarCarrito.nombre.replaceAll(
-        " ",
-        "_"
-      )} data-img=${mostrarCarrito.foto} data-precio=${
+    <button data-id=${
+      mostrarCarrito.id
+    } data-nombre=${mostrarCarrito.nombre.replaceAll(" ", "_")} data-img=${
+        mostrarCarrito.foto
+      } data-precio=${
         mostrarCarrito.precio
       } type="button" class="btn btn-secondary" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
   </div>
@@ -381,14 +409,13 @@ botonBorrarFiltro.addEventListener("click", function (e) {
   }
 });
 
-
 // Agregar los productos al Carrito
 
 let carrito = [];
 let total = 0;
 let subtotal = 0;
 let costoEnvio = 500;
-  
+
 class constructorVariedadCarrito {
   constructor(id, nombre, precio, img) {
     this.id = id;
@@ -398,13 +425,13 @@ class constructorVariedadCarrito {
   }
 }
 let containerCarrito = document.getElementById("containerCarrito");
-// Guardemos los productos en el carrito primero 
+// Guardemos los productos en el carrito primero
 
 if (
-  localStorage.getItem("carrito"),
+  (localStorage.getItem("carrito"),
   localStorage.getItem("subtotal"),
   localStorage.getItem("costoEnvio"),
-  localStorage.getItem("total")
+  localStorage.getItem("total"))
 ) {
   carrito = JSON.parse(localStorage.getItem("carrito"));
   subtotal = JSON.parse(localStorage.getItem("subtotal"));
@@ -412,10 +439,12 @@ if (
   total = JSON.parse(localStorage.getItem("total"));
   mostrarCarrito();
   actualizarTotal();
-} 
+}
 
 function agregarProductoCarrito(event) {
-  let variedadEncontrada = carrito.findIndex((el) => el.id == event.target.dataset.id);
+  let variedadEncontrada = carrito.findIndex(
+    (el) => el.id == event.target.dataset.id
+  );
   console.log(carrito);
   if (variedadEncontrada == -1) {
     console.log("No existe la variedad en el catalogo, hay que crearla");
@@ -423,9 +452,9 @@ function agregarProductoCarrito(event) {
       event.target.dataset.id,
       event.target.dataset.nombre,
       event.target.dataset.precio,
-      event.target.dataset.img,
-      )
-      nuevaCardCarrito.cantidad = 1;
+      event.target.dataset.img
+    );
+    nuevaCardCarrito.cantidad = 1;
     carrito.push(nuevaCardCarrito);
     console.log(nuevaCardCarrito);
   } else {
@@ -434,64 +463,72 @@ function agregarProductoCarrito(event) {
   }
   mostrarCarrito();
   actualizarTotal();
-};
+}
 
 function mostrarCarrito() {
-  containerCarrito.innerHTML= ``
+  containerCarrito.innerHTML = ``;
   carrito.forEach((variedadCarrito) => {
-  let cardCarrito = document.createElement("div");
-    cardCarrito.setAttribute("class", "card cardCarrito")
+    let cardCarrito = document.createElement("div");
+    cardCarrito.setAttribute("class", "card cardCarrito");
     cardCarrito.innerHTML = `<div class="card text-bg-dark" style="max-width: 200px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="${variedadCarrito.img}" class="img-fluid rounded-start" alt="...">
+      <img src="${
+        variedadCarrito.img
+      }" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <p class="card-title">Variedad:  <strong>${variedadCarrito.nombre.replaceAll("_", " ")}</strong></p>
+        <p class="card-title">Variedad:  <strong>${variedadCarrito.nombre.replaceAll(
+          "_",
+          " "
+        )}</strong></p>
         <hr>
-        <p class="card-text">Precio: <strong>$${variedadCarrito.precio}</strong></p>
+        <p class="card-text">Precio: <strong>$${
+          variedadCarrito.precio
+        }</strong></p>
         <p>Cantidad: ${variedadCarrito.cantidad}</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button data-id="${variedadCarrito.id}" type="button" class="btnCarrito btn btn-outline-danger btn-sm" onclick="eliminarProductoCarrito(${variedadCarrito.id})"> Borrar </button></div>
+          <button data-id="${
+            variedadCarrito.id
+          }" type="button" class="btnCarrito btn btn-outline-danger btn-sm" onclick="eliminarProductoCarrito(${
+      variedadCarrito.id
+    })"> Borrar </button></div>
       </div>
     </div>
   </div>
 </div>`;
     containerCarrito.appendChild(cardCarrito);
-  })
+  });
   localStorage.setItem("carrito", JSON.stringify(carrito));
   localStorage.setItem("subtotal", JSON.stringify(subtotal));
   localStorage.setItem("costoEnvio", JSON.stringify(costoEnvio));
-  localStorage.setItem("total", JSON.stringify(total))
+  localStorage.setItem("total", JSON.stringify(total));
 }
 
-
 function eliminarProductoCarrito(id) {
-  let idVariedad = carrito.findIndex(item =>
-    item.id == id)
+  let idVariedad = carrito.findIndex((item) => item.id == id);
   console.log(idVariedad);
   carrito = JSON.parse(localStorage.getItem("carrito"));
   carrito.splice(idVariedad, 1);
   mostrarCarrito();
   actualizarTotal();
   ultimaVariedad();
-};
+}
 
 function vaciarCarrito() {
   carrito = [];
   mostrarCarrito();
   total = 0;
   actualizarTotal();
-  document.querySelector("#resumenCompra").innerHTML = ` `
+  document.querySelector("#resumenCompra").innerHTML = ` `;
 }
 
 function actualizarTotal() {
   let subtotal = 0;
-  carrito.forEach((item) => (
-    subtotal += item.cantidad * item.precio));
+  carrito.forEach((item) => (subtotal += item.cantidad * item.precio));
   let total = subtotal + costoEnvio;
-  
+
   document.querySelector(
     "#resumenCompra"
   ).innerHTML = `<h5>Subtotal: $${subtotal} </h5>
@@ -505,31 +542,58 @@ function actualizarTotal() {
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Completá tus datos y listo!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onclick="borrarResumen()"></button>
       </div>
       <div class="offcanvas-body">
-      <ul class="list-group">
-      <li class="list-group-item active" aria-current="true">Resumen de tu Compra:</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-      <li class="list-group-item">A fourth item</li>
-      <li class="list-group-item">And a fifth one</li>
-    </ul>
-        <div class="dropdown mt-3">
-          <button class="btn btn-secondary" type="submit">
+      <caption>Resumen</caption>
+      <table class="table table-sm ">
+  <thead>
+    <tr>
+      <th scope="col">Variedad</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider" id="itemCompraFinal">
+  </tbody>
+</table>
+<hr>
+<p class="text-end">Costo de Envío: <strong>$${costoEnvio}</strong></p>
+<h6 class="text-end">Total = <strong>$${total}</strong></h6>
+<div id="containerFormCompra">
+<form class="containerFormCompra d-grid gap-2">
+    <div class="input-group flex-nowrap input-group-sm">
+      <span class="input-group-text" id="addon-wrapping">Nombre Completo: </span>
+      <input type="text" class="form-control"  aria-label="nombre" aria-describedby="addon-wrapping" required>
+    </div>
+    <div class="input-group flex-nowrap input-group-sm">
+      <span class="input-group-text " id="addon-wrapping">Whatsapp: </span>
+      <input type="number" class="form-control"  aria-label="whatsapp" aria-describedby="addon-wrapping" placeholder="ej: 11 1234 5678" required>
+    </div>
+    <div class="input-group flex-nowrap input-group-sm">
+      <span class="input-group-text" id="addon-wrapping">Mail </span>
+      <input type="mail" class="form-control"  aria-label="Mail" aria-describedby="addon-wrapping" placeholder="ej: hola420@gmail.com" required>
+    </div>
+    <div class="input-group flex-nowrap input-group-sm">
+      <span class="input-group-text" id="addon-wrapping">Dirección</span>
+      <input type="text" class="form-control"  aria-label="direccion" aria-describedby="addon-wrapping" placeholder="ej: Calle Malabia 2854 5D" required>
+    </div>
+    </form></div>
+        <div class="dropdown mt-3 justify-content-md-end">
+          <button class="btn btn-success" type="submit">
             Confirmar
           </button>
         </div>
       </div>
     </div>`;
-  
 }
 console.log(carrito.length);
-// Eliminar container de Resumen Compra cuando se borra el ultimo producto de forma individual 
+// Eliminar container de Resumen Compra cuando se borra el ultimo producto de forma individual
 
 function ultimaVariedad() {
   if (carrito.length == 0) {
-    document.querySelector("#resumenCompra").innerHTML = ` `
+    document.querySelector("#resumenCompra").innerHTML = ` `;
     console.log("aer si ta vacio");
   } else {
     console.log("aer 2 no ta vacio");
@@ -538,4 +602,22 @@ function ultimaVariedad() {
 
 function confirmarCompra() {
   console.log("probando botoncito");
+  console.log(carrito);
+  carrito.forEach((itemFinal) => {
+    let itemFinalTotal = itemFinal.cantidad * itemFinal.precio;
+    let containerCompraFinal = document.querySelector("#itemCompraFinal");
+    let containerIndividual = document.createElement("tr");
+    containerIndividual.innerHTML = `
+      <th scope="row">${itemFinal.nombre.replaceAll("_", " ")}</th>
+      <td>${itemFinal.cantidad}</td>
+      <td>${itemFinal.precio}</td>
+      <td>${itemFinalTotal} </td>
+      <td></td>`;
+    containerCompraFinal.appendChild(containerIndividual);
+  });
+}
+
+function borrarResumen() {
+  console.log("Probando a ver si lo agarra");
+  document.querySelector("#itemCompraFinal").innerHTML = ` `;
 }

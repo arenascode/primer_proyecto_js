@@ -579,12 +579,18 @@ function actualizarTotal() {
       <span class="input-group-text" id="addon-wrapping">Dirección</span>
       <input type="text" class="form-control"  aria-label="direccion" aria-describedby="addon-wrapping" placeholder="ej: Calle Malabia 2854 5D" required>
     </div>
-    </form></div>
-        <div class="dropdown mt-3 justify-content-md-end">
-          <button class="btn btn-success" type="submit">
+    <div class="dropdown mt-3 justify-content-md-end">
+        <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="accept" id="flexCheckDefault" required>
+  <label class="form-check-label" for="flexCheckDefault">
+    Acepto Terminos y Condiciones
+  </label>
+</div>
+</div>
+    <button class="btn btn-success" type="submit" value="enviar">
             Confirmar
           </button>
-        </div>
+          </form></div>
       </div>
     </div>`;
 }
@@ -620,4 +626,15 @@ function confirmarCompra() {
 function borrarResumen() {
   console.log("Probando a ver si lo agarra");
   document.querySelector("#itemCompraFinal").innerHTML = ` `;
+}
+
+const formCompraFinal = document.querySelector(".containerFormCompra");
+formCompraFinal.addEventListener("submit", enviarFormCompra);
+  
+function enviarFormCompra(e) {
+  e.preventDefault();
+  console.log(formCompraFinal);
+  formCompraFinal.reset();
+  alert("Gracias por tu compra, nos pondremos en contacto contigo pronto");
+  // console.log("Primero probemos si funciona");
 }

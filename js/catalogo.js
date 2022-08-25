@@ -536,7 +536,7 @@ function actualizarTotal() {
   <h6>Costo de Envío: $${costoEnvio}</h6>
   <hr>
   Total de tu Compra: <strong>$${total}</strong>
-  <a class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" onclick=confirmarCompra()>
+  <a class="btn btn-success " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" onclick=confirmarCompra()>
       Confirmar Compra
     </a>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">

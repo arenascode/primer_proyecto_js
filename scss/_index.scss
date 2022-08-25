@@ -30,13 +30,13 @@ background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(237, 228, 228);
+  color: rgb(255, 255, 255);
 }
 .fastMenu {
   background-color:#212529;
   display: flex;
   flex-wrap: wrap;
-  row-gap: 3px;
+  column-gap: 70px;
   color: white;
   justify-content: center;
   .fastMenu_Automaticas {
@@ -44,26 +44,56 @@ background-size: cover;
     margin: 5px;
     border: .120rem solid #ccc;
     border-radius: 10px;
-    h5 {
-      margin-top: 7px;
-    } p {
-    text-transform:capitalize;
-    font-size: .75rem;
-    letter-spacing: .0625rem;
+    width: 13rem;
+    .btnAuto {
+    background-image: url(../images/ruderalisBoton.png);
+    background-repeat: round;
+    height: 20rem;
+    padding: 0;
     margin: 0;
-    } a {
-      margin-bottom: 8px;
-    }
+    width: 13rem;
+  }
   }
 }
-.fastMenu_Fotoperiodicas{
+.fastMenu_sativas{
 @extend .fastMenu_Automaticas;
+.btnSativa {
+    background-image: url(../images/sativaBoton.png);
+    background-repeat: round;
+    height: 20rem;
+    padding: 0;
+    margin: 0;
+    width: 13rem;
+  }
 }
 .fastMenu_CBD {
-  @extend .fastMenu_Automaticas;
+  // @extend .fastMenu_Automaticas;
+  width: 17rem;
+  margin: 5px;
+    border: .120rem solid #ccc;
+    border-radius: 10px;
+    margin-left: 500px;
+    margin-top: 50px;
+  .btnCbd {
+    background-image: url(../images/cbdBoton.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
 }
-.fastMenu_FastFlower{
+.fastMenu_Indica{
   @extend .fastMenu_Automaticas;
+  .btnIndica {
+    background-image: url(../images/indicaBoton.png);
+    background-repeat: round;
+    height: 20rem;
+    padding: 0;
+    margin: 0;
+    width: 13rem;
+  }
 }
 .nuevosIngresos {
   display: flex;

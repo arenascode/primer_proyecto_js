@@ -26,29 +26,60 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ede4e4; }
+  color: white; }
 
 .fastMenu {
   background-color: #212529;
   display: flex;
   flex-wrap: wrap;
-  row-gap: 3px;
+  column-gap: 70px;
   color: white;
   justify-content: center; }
-  .fastMenu .fastMenu_Automaticas, .fastMenu .fastMenu_Fotoperiodicas, .fastMenu .fastMenu_CBD, .fastMenu .fastMenu_FastFlower {
+  .fastMenu .fastMenu_Automaticas, .fastMenu .fastMenu_sativas, .fastMenu .fastMenu_Indica {
     background-color: #323e35;
     margin: 5px;
     border: .120rem solid #ccc;
-    border-radius: 10px; }
-    .fastMenu .fastMenu_Automaticas h5, .fastMenu .fastMenu_Fotoperiodicas h5, .fastMenu .fastMenu_CBD h5, .fastMenu .fastMenu_FastFlower h5 {
-      margin-top: 7px; }
-    .fastMenu .fastMenu_Automaticas p, .fastMenu .fastMenu_Fotoperiodicas p, .fastMenu .fastMenu_CBD p, .fastMenu .fastMenu_FastFlower p {
-      text-transform: capitalize;
-      font-size: .75rem;
-      letter-spacing: .0625rem;
-      margin: 0; }
-    .fastMenu .fastMenu_Automaticas a, .fastMenu .fastMenu_Fotoperiodicas a, .fastMenu .fastMenu_CBD a, .fastMenu .fastMenu_FastFlower a {
-      margin-bottom: 8px; }
+    border-radius: 10px;
+    width: 13rem; }
+    .fastMenu .fastMenu_Automaticas .btnAuto, .fastMenu .fastMenu_sativas .btnAuto, .fastMenu .fastMenu_Indica .btnAuto {
+      background-image: url(../images/ruderalisBoton.png);
+      background-repeat: round;
+      height: 20rem;
+      padding: 0;
+      margin: 0;
+      width: 13rem; }
+
+.fastMenu_sativas .btnSativa {
+  background-image: url(../images/sativaBoton.png);
+  background-repeat: round;
+  height: 20rem;
+  padding: 0;
+  margin: 0;
+  width: 13rem; }
+
+.fastMenu_CBD {
+  width: 17rem;
+  margin: 5px;
+  border: .120rem solid #ccc;
+  border-radius: 10px;
+  margin-left: 500px;
+  margin-top: 50px; }
+  .fastMenu_CBD .btnCbd {
+    background-image: url(../images/cbdBoton.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10rem;
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+
+.fastMenu_Indica .btnIndica {
+  background-image: url(../images/indicaBoton.png);
+  background-repeat: round;
+  height: 20rem;
+  padding: 0;
+  margin: 0;
+  width: 13rem; }
 
 .nuevosIngresos {
   display: flex;

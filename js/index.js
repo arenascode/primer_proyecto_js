@@ -2,7 +2,7 @@
 
 import { controlDeIngreso } from './funciones.js'
 
- controlDeIngreso();
+// controlDeIngreso();
 
 // Formulario de Registro
 

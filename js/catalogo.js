@@ -404,6 +404,7 @@ botonBorrarFiltro.addEventListener("click", function (e) {
       catalogoVariedadFiltrada.appendChild(cardVariedad);
     });
     console.log("va a borrar el contenido");
+    document.getElementById("formFiltro").reset();
   } else {
     console.log("No va a borrar nada");
   }

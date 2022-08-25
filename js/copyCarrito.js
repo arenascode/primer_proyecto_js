@@ -635,6 +635,20 @@ function enviarFormCompra(e) {
   e.preventDefault();
   console.log(formCompraFinal);
   formCompraFinal.reset();
-  alert("Gracias por tu compra, nos pondremos en contacto contigo pronto");
+  Swal.fire({
+    title: "Estás seguro?",
+    text: "Una vez confirmes no podrás revertir la compra!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, Confirmo la Compra!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Gracias por tu compra!", "En breve nos contactaremos contigo para coordinar tu pedido.", "success");
+      borrarResumen();
+      vaciarCarrito();
+    }
+  });
   // console.log("Primero probemos si funciona");
 }

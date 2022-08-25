@@ -34,7 +34,8 @@ body {
   flex-wrap: wrap;
   column-gap: 70px;
   color: white;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 2em; }
   .fastMenu .fastMenu_Automaticas, .fastMenu .fastMenu_sativas, .fastMenu .fastMenu_Indica {
     background-color: #323e35;
     margin: 5px;
@@ -59,18 +60,18 @@ body {
 
 .fastMenu_CBD {
   width: 17rem;
-  margin: 5px;
+  margin: 5px 0px 20px;
   border: .120rem solid #ccc;
   border-radius: 10px;
-  margin-left: 500px;
-  margin-top: 50px; }
+  margin-top: 50px;
+  display: flex;
+  justify-self: center; }
   .fastMenu_CBD .btnCbd {
     background-image: url(../images/cbdBoton.png);
     background-position: center;
     background-repeat: no-repeat;
     height: 10rem;
     padding: 0;
-    margin: 0;
     width: 100%; }
 
 .fastMenu_Indica .btnIndica {
@@ -84,6 +85,8 @@ body {
 .nuevosIngresos {
   display: flex;
   flex-direction: column; }
+  .nuevosIngresos h3 {
+    color: honeydew; }
 
 .cards {
   width: 100%;

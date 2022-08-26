@@ -13,10 +13,7 @@ const inputOptions = new Promise((resolve) => {
   }, 1000);
 });
 
-
-
-
-const { value: color } = await Swal.fire({
+const { value: edad } = await Swal.fire({
   title: "Tienes más de 18 años?",
   icon: "question",
   input: "radio",
@@ -28,16 +25,16 @@ const { value: color } = await Swal.fire({
   inputValidator: (value) => {
     switch (value) {
       case null:
-        return "Selecciona una Opción!";
+        return "Selecciona una opción!";
         break;
       case "accesoDenegado":
         return "Tienes que ser mayor de edad para ingresar";
     }
   },
 });
-console.log(color);
+console.log(edad);
 
-if (color === "puedesIngresar") {
+if (edad === "puedesIngresar") {
   console.log("el usuario puede entrar");
   Swal.fire({
     html: `Bienvenido/a nuestra tienda. Esperamos disfutes tu estadía`,

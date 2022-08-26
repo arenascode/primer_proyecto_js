@@ -1,8 +1,54 @@
 // Control de Ingreso edad
 
-import { controlDeIngreso } from './funciones.js'
+// import { controlDeIngreso } from './funciones.js'
 
 // controlDeIngreso();
+
+const inputOptions = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve({
+      "puedesIngresar": "Si",
+      "accesoDenegado": "No",
+    })
+  }, 1000);
+});
+
+
+
+
+const { value: color } = await Swal.fire({
+  title: "Tienes más de 18 años?",
+  icon: "question",
+  input: "radio",
+  allowEscapeKey: false,
+  allowOutsideClick: false,
+  allowEnterKey: false,
+  confirmButtonColor: "#42893c",
+  inputOptions: inputOptions,
+  inputValidator: (value) => {
+    switch (value) {
+      case null:
+        return "Selecciona una Opción!";
+        break;
+      case "accesoDenegado":
+        return "Tienes que ser mayor de edad para ingresar";
+    }
+  },
+});
+console.log(color);
+
+if (color === "puedesIngresar") {
+  console.log("el usuario puede entrar");
+  Swal.fire({
+    html: `Bienvenido/a nuestra tienda. Esperamos disfutes tu estadía`,
+    confirmButtonColor: "#42893c",
+    timer: 3000,
+  });
+ 
+} else {
+  console.log("el usuario seleccionó No");
+  Swal.fire({ html: `Te Esperamos cuando cumplas 18 años!` });
+}
 
 // Formulario de Registro
 
@@ -16,11 +62,9 @@ form.addEventListener("submit", handleSubmit);
 
 import { stockVariedades } from './stock.js';
 
-console.log(stockVariedades);
 stockVariedades.reverse();
 
 let containerUltimosIngresos = document.getElementById("ultimosIngresos");
-console.log(containerUltimosIngresos);
 
 function ultimosIngresos() {
   stockVariedades.length = 4;

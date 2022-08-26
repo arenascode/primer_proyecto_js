@@ -2,31 +2,34 @@
 
 // Control de Ingreso 
 
-export function controlDeIngreso() {
-  let edad = parseInt(prompt("Qué Edad Tienes?"));
+// export function controlDeIngreso() {
+//   let edad = parseInt(prompt("Qué Edad Tienes?"));
 
-  edad >= 18 ? bienvenido() : rechazado()
-}
+//   edad >= 18 ? bienvenido() : rechazado()
+// }
 
-function bienvenido() {
-  console.log("El usuario puede entrar");
-  Swal.fire({
-    icon: "success",
-    title: "Bienvenido/a!",
-    text: "Esperamos disfrutes tu estadía en la tienda",
-    timer: 2000
-  });
-}
+// function bienvenido() {
+//   console.log("El usuario puede entrar");
+//   Swal.fire({
+//     icon: "success",
+//     title: "Bienvenido/a!",
+//     text: "Esperamos disfrutes tu estadía en la tienda",
+//     timer: 2000
+//   });
+// }
 
-function rechazado() {
-  Swal.fire({
-    icon: "error",
-    title: "Oops...Todavía no es momento de ingresar",
-    text: "En cuanto cumplas 18 te esperamos!!",
-  });
-  console.log("el usuario no puede entrar");
-  controlDeIngreso();
-};
+// function rechazado() {
+//   Swal.fire({
+//     icon: "error",
+//     title: "Oops...Todavía no es momento de ingresar",
+//     text: "En cuanto cumplas 18 te esperamos!!",
+//   }).then(() => {
+//     console.log("el usuario no puede entrar");
+//     setTimeout(() => {
+//       controlDeIngreso()
+//     },500)
+//   });
+// }
 
 // Formulario de Registro
 

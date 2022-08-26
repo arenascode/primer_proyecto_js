@@ -447,7 +447,6 @@ function agregarProductoCarrito(event) {
   let variedadEncontrada = carrito.findIndex(
     (el) => el.id == event.target.dataset.id
   );
-  console.log(carrito);
   if (variedadEncontrada == -1) {
     console.log("No existe la variedad en el catalogo, hay que crearla");
     let nuevaCardCarrito = new constructorVariedadCarrito(
@@ -458,9 +457,8 @@ function agregarProductoCarrito(event) {
     );
     nuevaCardCarrito.cantidad = 1;
     carrito.push(nuevaCardCarrito);
-    console.log(nuevaCardCarrito);
   } else {
-    console.log("Ya existe la variedad en el carrito. Se sumará 1");
+    
     carrito[variedadEncontrada].cantidad += 1;
   }
   mostrarCarrito();
@@ -510,7 +508,6 @@ function mostrarCarrito() {
 
 function eliminarProductoCarrito(id) {
   let idVariedad = carrito.findIndex((item) => item.id == id);
-  console.log(idVariedad);
   carrito = JSON.parse(localStorage.getItem("carrito"));
   carrito.splice(idVariedad, 1);
   mostrarCarrito();
@@ -596,21 +593,18 @@ function actualizarTotal() {
       </div>
     </div>`;
 }
-console.log(carrito.length);
+
 // Eliminar container de Resumen Compra cuando se borra el ultimo producto de forma individual
 
 function ultimaVariedad() {
   if (carrito.length == 0) {
     document.querySelector("#resumenCompra").innerHTML = ` `;
-    console.log("aer si ta vacio");
   } else {
-    console.log("aer 2 no ta vacio");
+    console.log("no ta vacio");
   }
 }
 
 function confirmarCompra() {
-  console.log("probando botoncito");
-  console.log(carrito);
   carrito.forEach((itemFinal) => {
     let itemFinalTotal = itemFinal.cantidad * itemFinal.precio;
     let containerCompraFinal = document.querySelector("#itemCompraFinal");
@@ -626,7 +620,6 @@ function confirmarCompra() {
 }
 
 function borrarResumen() {
-  console.log("Probando a ver si lo agarra");
   document.querySelector("#itemCompraFinal").innerHTML = ` `;
 }
 
@@ -635,19 +628,22 @@ formCompraFinal.addEventListener("submit", enviarFormCompra);
   
 function enviarFormCompra(e) {
   e.preventDefault();
-  console.log(formCompraFinal);
   formCompraFinal.reset();
   Swal.fire({
     title: "Estás seguro?",
     text: "Una vez confirmes no podrás revertir la compra!",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
+    confirmButtonColor: "#198754",
     cancelButtonColor: "#d33",
     confirmButtonText: "Sí, Confirmo la Compra!",
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire("Gracias por tu compra!", "En breve nos contactaremos contigo para coordinar tu pedido.", "success");
+      Swal.fire(
+        "Gracias por tu compra!",
+        "En breve nos contactaremos contigo para coordinar tu pedido.",
+        "success"
+      );
       borrarResumen();
       vaciarCarrito();
     }

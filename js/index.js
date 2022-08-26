@@ -42,7 +42,6 @@ if (sessionStorage.getItem('edadUsuario')) {
     });
     sessionStorage.setItem('edadUsuario', edad);
   } else {
-    console.log("el usuario seleccionó No");
     Swal.fire({ html: `Te Esperamos cuando cumplas 18 años!` });
   }
 };

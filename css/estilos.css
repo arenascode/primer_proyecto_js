@@ -28,6 +28,12 @@ body {
   justify-content: center;
   color: white; }
 
+.menuTitle {
+  margin-top: 1rem;
+  color: honeydew;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  letter-spacing: 1.5px; }
+
 .fastMenu {
   background-color: #212529;
   display: flex;
@@ -84,9 +90,21 @@ body {
 
 .nuevosIngresos {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin: 2em 0; }
   .nuevosIngresos h3 {
-    color: honeydew; }
+    margin-top: 1rem;
+    color: honeydew;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    letter-spacing: 1.5px; }
+
+#ultimosIngresos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2em 0; }
+  #ultimosIngresos .cardVariedad {
+    background-color: honeydew; }
 
 .cards {
   width: 100%;
@@ -101,7 +119,13 @@ body {
   justify-content: center;
   align-items: center;
   column-gap: 10px;
-  color: #63b85b; }
+  color: #63b85b;
+  border: .120rem solid #ccc;
+  border-radius: 10px;
+  max-width: max-content;
+  justify-self: center;
+  margin: 4em 0;
+  padding: 1em; }
   .inscripcion form {
     width: 25rem;
     display: flex;
@@ -111,6 +135,11 @@ body {
     align-items: center;
     margin-bottom: 10px;
     width: auto; }
+    .inscripcion form input {
+      border: .120rem solid #ccc;
+      border-radius: 10px; }
+  .inscripcion button {
+    margin-top: 1em; }
 
 #mensajeJS {
   width: auto; }

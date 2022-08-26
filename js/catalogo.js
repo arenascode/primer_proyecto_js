@@ -1,5 +1,6 @@
 // Creando el stock mediante objetos en Array
 const stockVariedades = [];
+
 class Producto {
   constructor(id, nombre, banco, variedad, precio, foto, descripcion) {
     this.id = id;

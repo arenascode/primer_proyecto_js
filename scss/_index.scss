@@ -3,6 +3,9 @@
     flex-direction: row;
     flex-wrap: inherit;
     column-gap: 10px;
+    .itemsNav {
+      justify-content: end;
+    }
     .carrito {
       width: auto;
     }

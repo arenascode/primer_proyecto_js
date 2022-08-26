@@ -33,14 +33,13 @@ function ultimosIngresos() {
   <div class="card-body">
     <h5 class="card-title">${ultimo.nombre}</h5>
     <h6><strong>Banco:</strong> ${ultimo.banco}</h6>
-    <p class="card-text fw-normal"> <strong>Precio:</strong> $${ultimo.precio
-        }
-    <button data-id=${ultimo.id} data-nombre=${ultimo.nombre.replaceAll(
-          " ",
-          "_"
-        )}
-    data-img=${ultimo.foto} data-precio=${ultimo.precio
-        } type="button" class="btnCarrito btn btn-success" onclick="agregarProductoCarrito(event)"> Agregar Al Carrito </button>
+    <p class="card-text fw-normal"> <strong>Precio:</strong> $${ultimo.precio}
+    <a href="./pages/catalogo.html" data-id=${
+      ultimo.id
+    } data-nombre=${ultimo.nombre.replaceAll(" ", "_")}
+    data-img=${ultimo.foto} data-precio=${
+        ultimo.precio
+      } type="button" class="btnCarrito btn btn-success">Ir al Catalogo</a>
   </div>
 </div>`;
       containerUltimosIngresos.appendChild(cardUltimoIngreso);

@@ -1,3 +1,11 @@
+.bannerCatalogo {
+  @include tamanioBanner(12rem, 100%);
+background-attachment: fixed;
+background-position: bottom;
+background-repeat: no-repeat;
+background-size: cover;
+  background-image: url(../images/bannerCatalogo1.jpg);
+}
 .catalogoPrincipal {
   
 .containerCatalogo {
@@ -12,6 +20,12 @@
     margin: 10px;
     padding: 10px;
     position: relative;
+    h4 {
+      margin-top: 1rem;
+      color:honeydew;
+      font-family: 'Edu VIC WA NT Beginner', cursive;
+      letter-spacing: 1.5px;
+    }
     form {
     align-items: center;
     .form-check {
@@ -40,6 +54,7 @@
   font-size: 0.9rem;
   height: auto;
   margin-bottom: 1%;
+  background-color: honeydew;
   p {
     text-align: justify;
   }
@@ -51,8 +66,14 @@
     justify-content: center;
     column-gap: 5px;
     row-gap: 5px;
+    
 }
-
+.containerCarrito h3 {
+      margin-top: 1rem;
+      color:honeydew;
+      font-family: 'Edu VIC WA NT Beginner', cursive;
+      letter-spacing: 1.5px;
+    }
 .seccionCarrito {
   display:flex;
   
